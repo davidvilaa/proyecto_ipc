@@ -3,6 +3,7 @@ package Login;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;
+import javafx.scene.image.Image;
 import javafx.stage.*;
 
 public class Login_Main extends Application {
@@ -13,6 +14,7 @@ public class Login_Main extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Login Usuario");
+        stage.getIcons().add(new Image("./assets/ww_black.png"));
         stage.show();
     }
     
