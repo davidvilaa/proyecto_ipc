@@ -8,11 +8,6 @@ import javafx.scene.control.*;
 
 public class Login_FXMLController implements Initializable{
 
-    @FXML
-    private TextField nickname;
-    @FXML
-    private TextField mail;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }

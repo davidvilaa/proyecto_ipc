@@ -15,6 +15,7 @@ public class Register_Main extends Application {
         stage.setScene(scene);
         stage.setTitle("Registrar Usuario");
         stage.getIcons().add(new Image("./assets/ww_black.png"));
+        stage.setResizable(false);
         stage.show();
     }
     
