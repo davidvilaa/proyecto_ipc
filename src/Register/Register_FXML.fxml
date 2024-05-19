@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Register.Register_FXMLController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -26,6 +26,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
+      <PasswordField fx:id="password" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="700.0" stroke="TRANSPARENT" strokeType="INSIDE" width="267.0" GridPane.rowIndex="2" />
       <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Nombre:" GridPane.columnIndex="1">
          <font>
@@ -52,11 +53,10 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <TextField GridPane.columnIndex="2" />
-      <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <PasswordField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button fx:id="register_button" mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <TextField fx:id="name" GridPane.columnIndex="2" />
+      <TextField fx:id="nickname" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <TextField fx:id="mail" GridPane.columnIndex="2" GridPane.rowIndex="3" />
    </children>
    <padding>
       <Insets right="30.0" />

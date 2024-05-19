@@ -13,9 +13,11 @@ public class Register_FXMLController implements Initializable {
     @FXML
     private TextField nickname;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private TextField mail;
+    @FXML
+    private Button register_button;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
