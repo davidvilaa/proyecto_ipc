@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.event.*;
 import java.io.IOException;
 import javafx.scene.Parent;
+import model.*;
 
 public class Login_FXMLController implements Initializable{
 
@@ -24,6 +25,24 @@ public class Login_FXMLController implements Initializable{
         Parent root = loader.load();
         
         Login_Main.setRoot(root);
+    }
+    
+    @FXML
+    private void loginHandle(ActionEvent event) throws IOException{
+        try{
+            Acount cuentaGastos = Acount.getInstance();
+            if(!(nickname.getText().trim().isEmpty()) && !(password.getText().trim().isEmpty())){
+                if(cuentaGastos.logInUserByCredentials(nickname.getText(), password.getText())){
+                    login_button.setText("Inicio de Sesión Correcto");
+                }
+                else{
+                    login_button.setText("Usuario o Contraseña incorrectos");
+                }
+            }
+        }
+        catch(AcountDAOException e){
+            e.printStackTrace();
+        }
     }
 
     @Override

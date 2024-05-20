@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -53,10 +54,18 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="register_button" mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Label fx:id="register_error" alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="250.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Button fx:id="register" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="5" />
       <TextField fx:id="name" GridPane.columnIndex="2" />
       <TextField fx:id="nickname" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <TextField fx:id="mail" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <ImageView fx:id="image" fitHeight="90.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button fx:id="selectArchive" mnemonicParsing="false" onAction="#selectArchiveHandle" prefHeight="0.0" prefWidth="250.0" text="Seleccionar Archivo" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="252.0" text="(opcional)" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </Label>
    </children>
    <padding>
       <Insets right="30.0" />
