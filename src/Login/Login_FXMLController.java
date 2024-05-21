@@ -34,6 +34,7 @@ public class Login_FXMLController implements Initializable{
             if(!(nickname.getText().trim().isEmpty()) && !(password.getText().trim().isEmpty())){
                 if(cuentaGastos.logInUserByCredentials(nickname.getText(), password.getText())){
                     login_button.setText("Inicio de Sesión Correcto");
+                    
                 }
                 else{
                     login_button.setText("Usuario o Contraseña incorrectos");
