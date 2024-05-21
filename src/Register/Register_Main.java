@@ -9,21 +9,22 @@ import javafx.stage.*;
 public class Register_Main extends Application {
     
     private static Scene scene;
-    
-    static void setRoot(Parent root){
-        scene.setRoot(root);
-    }
+    private static Stage mainStage;
     
     @Override
     public void start(Stage stage) throws Exception {
+        mainStage = stage;
+        
         FXMLLoader loader= new FXMLLoader(getClass().getResource("Register_FXML.fxml"));
         Parent root = loader.load();
+        
         scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Registrar Usuario");
-        stage.getIcons().add(new Image("./assets/ww_black.png"));
-        stage.setResizable(false);
-        stage.show();
+        
+        mainStage.setScene(scene);
+        mainStage.setTitle("Registrar Usuario");
+        mainStage.getIcons().add(new Image("./assets/ww_black.png"));
+        mainStage.setResizable(false);
+        mainStage.show();
     }
     
     public static void main(String[] args) {
