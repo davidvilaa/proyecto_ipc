@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddGasto.AddGasto_FXMLController">
+   <top>
+      <HBox maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefWidth="758.0" HBox.hgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="558.4000244140625" minWidth="10.0" prefWidth="90.39996337890625" />
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="571.7999938964844" minWidth="10.0" prefWidth="449.60002441406255" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="558.4000244140625" minWidth="10.0" prefWidth="90.39996337890625" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <ImageView fitHeight="72.0" fitWidth="82.0" opacity="0.09" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/ww_black.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <Label text="Añadir Gasto Nuevo" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="72.0" fitWidth="82.0" opacity="0.09" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                     <image>
+                        <Image url="@../assets/ww_black.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <GridPane prefHeight="187.0" prefWidth="512.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="90.39996337890625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="161.99999999999997" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.79998779296875" minWidth="10.0" prefWidth="260.4" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.79998779296875" minWidth="10.0" prefWidth="90.39996337890625" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="103.8000244140625" minHeight="10.0" prefHeight="68.60001220703126" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="159.79999389648438" minHeight="10.0" prefHeight="80.80000915527343" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="107.99999084472654" minHeight="10.0" prefHeight="107.99999084472654" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Categoría:" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Coste:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label text="Fecha:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Título:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label text="Descripción:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <MenuButton mnemonicParsing="false" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+               <graphic>
+                  <AutoCompleteTextField fx:id="CategoryText" />
+               </graphic>
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </MenuButton>
+            <TextField fx:id="CostText" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="TitleText" prefWidth="221.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="DescriptionText" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <DatePicker fx:id="DateText" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <left>
+      <VBox prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
