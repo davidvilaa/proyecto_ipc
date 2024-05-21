@@ -78,10 +78,11 @@ public class Register_FXMLController implements Initializable {
     }
     
     public void goToLogin() throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
-        Parent root = loader.load();
-        
-        Register_Main.setRoot(root);
+        Parent root = FXMLLoader.load(getClass().getResource("/Login/Login_FXML.fxml"));
+        Scene scene = new Scene(root);
+        Stage window = (Stage) nickname.getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
     
     @Override

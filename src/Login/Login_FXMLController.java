@@ -8,6 +8,9 @@ import javafx.scene.control.*;
 import javafx.event.*;
 import java.io.IOException;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import model.*;
 
 public class Login_FXMLController implements Initializable{
@@ -21,10 +24,11 @@ public class Login_FXMLController implements Initializable{
     
     @FXML
     private void goToRegister(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Register/Register_FXML.fxml"));
-        Parent root = loader.load();
-        
-        Login_Main.setRoot(root);
+        Parent root = FXMLLoader.load(getClass().getResource("/Register/Register_FXML.fxml"));
+        Scene scene = new Scene(root);
+        Stage window = (Stage) nickname.getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
     
     @FXML
