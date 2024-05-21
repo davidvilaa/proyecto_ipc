@@ -13,11 +13,11 @@ import model.*;
 public class Login_FXMLController implements Initializable{
 
     @FXML
-    private TextField nickname;
+    public TextField nickname;
     @FXML
-    private PasswordField password;
+    public PasswordField password;
     @FXML
-    private Button login_button;
+    public Button login_button;
     
     @FXML
     private void goToRegister(ActionEvent event) throws IOException{

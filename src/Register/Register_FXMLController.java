@@ -19,17 +19,17 @@ import javafx.scene.*;
 public class Register_FXMLController implements Initializable {
     
     @FXML
-    private TextField name;
+    public TextField name;
     @FXML
-    private TextField nickname;
+    public TextField nickname;
     @FXML
-    private PasswordField password;
+    public PasswordField password;
     @FXML
-    private TextField mail;
+    public TextField mail;
     @FXML
     private Button selectArchive;
     @FXML
-    private ImageView image;
+    public ImageView image;
     @FXML
     private Button register;
     @FXML
