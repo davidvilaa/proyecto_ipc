@@ -14,7 +14,7 @@ public class Login_FXMLController implements Initializable{
 
     @FXML
     private TextField nickname;
-    @FXML
+//    @FXML
     private PasswordField password;
     @FXML
     private Button login_button;
