@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Pau/Desktop/repo/proyecto_ipc/src/Category/Category_Main.java</file>
-            <file>file:/C:/Users/Pau/Desktop/repo/proyecto_ipc/src/AddGasto/AddGasto_Main.java</file>
-            <file>file:/C:/Users/Pau/Desktop/repo/proyecto_ipc/src/Login/Login_FXMLController.java</file>
-=======
-            <file>file:/C:/Users/David%20Vila%20Fortea/Desktop/IPC/proyecto_ipc/src/Login/Login_FXMLController.java</file>
-            <file>file:/C:/Users/David%20Vila%20Fortea/Desktop/IPC/proyecto_ipc/src/Register/Register_Main.java</file>
-            <file>file:/C:/Users/David%20Vila%20Fortea/Desktop/IPC/proyecto_ipc/src/Login/Login_Main.java</file>
-            <file>file:/C:/Users/David%20Vila%20Fortea/Desktop/IPC/proyecto_ipc/src/Register/Register_FXMLController.java</file>
->>>>>>> 034b517159707cfe2e626993a74da39a25a3546d
+            <file>file:/C:/Users/David%20Vila%20Fortea/Desktop/IPC/proyecto_ipc/src/MainMenu/MainMenu_Main.java</file>
+            <file>file:/C:/Users/David%20Vila%20Fortea/Desktop/IPC/proyecto_ipc/src/MainMenu/MainMenu_FXML.fxml</file>
+            <file>file:/C:/Users/David%20Vila%20Fortea/Desktop/IPC/proyecto_ipc/src/MainMenu/MainMenu_FXMLController.java</file>
         </group>
     </open-files>
 </project-private>

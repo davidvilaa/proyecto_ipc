@@ -25,9 +25,6 @@
             <TableColumn prefWidth="112.0" text="Precio" />
             <TableColumn prefWidth="120.0" text="Fecha" />
         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
          <BorderPane.margin>
             <Insets top="10.0" />
          </BorderPane.margin>
@@ -170,7 +167,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="BienvenidoUsuario" accessibleRole="MENU" text="%key.unspecified">
+                  <Label fx:id="bienvenido" accessibleRole="MENU">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Label>
