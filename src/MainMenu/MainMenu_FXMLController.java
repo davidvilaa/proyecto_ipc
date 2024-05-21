@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import model.*;
+import java.io.*;
 
 public class MainMenu_FXMLController implements Initializable {
 
@@ -13,7 +15,14 @@ public class MainMenu_FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        /*try{
+            Acount user = Acount.getInstance();
+            bienvenido.setText(user.getLoggedUser().getName());
+        }
+        catch(AcountDAOException e){
+          e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        } */
     }    
-    
 }
