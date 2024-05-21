@@ -34,6 +34,8 @@ public class Register_FXMLController implements Initializable {
     private Button register;
     @FXML
     private Label register_error;
+    @FXML
+    private Button atras;
 
     @FXML
     public void selectArchiveHandle(ActionEvent event){
@@ -68,6 +70,11 @@ public class Register_FXMLController implements Initializable {
         catch(AcountDAOException e){
             register_error.setText("ERROR: Este usuario ya existe");
         }
+    }
+    
+    @FXML
+    public void atrasHandle(ActionEvent event) throws IOException{
+        goToLogin();
     }
     
     public void goToLogin() throws IOException{
