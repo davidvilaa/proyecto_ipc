@@ -28,5 +28,6 @@ public class Register_Main extends Application {
     
     public static void main(String[] args) {
         launch(args);
+        System.out.println("borja marica");
     }
 }
