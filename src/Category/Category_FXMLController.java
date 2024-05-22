@@ -110,6 +110,7 @@ public class Category_FXMLController implements Initializable {
 
     @FXML
     private void EditingCategory(ActionEvent event) throws IOException{
+        String selectedItem = CategoryList.getSelectionModel().getSelectedItem();
         TextInputDialog dialog1 = new TextInputDialog("");
         dialog1.setTitle("");
         dialog1.setHeaderText("Introduce el nuevo nombre");
@@ -125,7 +126,6 @@ public class Category_FXMLController implements Initializable {
         }
         
         if(name.isPresent() && description.isPresent()){
-            String selectedItem = CategoryList.getSelectionModel().getSelectedItem();
             Category remove = null;
             try{
                 List<Category> categories = Acount.getInstance().getUserCategories();
