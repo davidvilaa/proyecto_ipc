@@ -6,6 +6,7 @@ package Category;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,7 +32,7 @@ public class Category_FXMLController implements Initializable {
     @FXML
     private Button ButtonDeleteCategory;
     @FXML
-    private ListView<?> CategoryList;
+    private ListView<String> CategoryList;
 
     /**
      * Initializes the controller class.
@@ -39,11 +40,14 @@ public class Category_FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ObservableList<?> items = FXCollections.observableArrayList();
+        ObservableList<String> items = FXCollections.observableArrayList();
         CategoryList.setItems(items);
+               
+        ButtonDeleteCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
+    
+        ButtonEditCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
         
-        BooleanBinding isListEmpty = CategoryList.getItems().emptyProperty();
-        ButtonDeleteCategory.disableProperty().bind(isListEmpty);
+        CategoryList.getItems().addAll("Elemento 1", "Elemento 2", "Elemento 3");
     }    
 
     @FXML

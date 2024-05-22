@@ -123,14 +123,17 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <MenuButton mnemonicParsing="false" prefHeight="28.0" prefWidth="199.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
+            <MenuButton fx:id="CategoryText" mnemonicParsing="false" prefHeight="28.0" prefWidth="199.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem fx:id="ItemCategory1" mnemonicParsing="false" text="olmo es chota" />
+                <MenuItem fx:id="ItemCategory2" mnemonicParsing="false" text="pov borja" />
               </items>
                <GridPane.margin>
                   <Insets left="15.0" right="10.0" />
                </GridPane.margin>
+               <graphic>
+                  <Label fx:id="LabelCategory" />
+               </graphic>
             </MenuButton>
             <TextField fx:id="CostText" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
