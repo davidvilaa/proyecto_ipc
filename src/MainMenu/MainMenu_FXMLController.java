@@ -22,6 +22,8 @@ import javafx.event.*;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import Login.Login_Main;
+import javafx.scene.image.Image;
 
 public class MainMenu_FXMLController implements Initializable {
 
@@ -40,6 +42,7 @@ public class MainMenu_FXMLController implements Initializable {
     @FXML
     private Button goToBorrar;
     @FXML
+<<<<<<< HEAD
     private TableView<Charge> chargeTable;
     @FXML
     private TableColumn<Charge, String> categoryColumn;
@@ -50,6 +53,9 @@ public class MainMenu_FXMLController implements Initializable {
     @FXML
     private TableColumn<Charge, String> dateColumn;
     
+=======
+    private MenuButton usuarioMenu;
+>>>>>>> 14daf47f6d023627577624f042d643b6daac70a1
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,7 +88,6 @@ public class MainMenu_FXMLController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Añadir Gasto");
         stage.setScene(new Scene(root));
-        stage.setResizable(false);
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToAddGasto.getScene().getWindow());
@@ -98,12 +103,41 @@ public class MainMenu_FXMLController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Categorías");
         stage.setScene(new Scene(root));
-        stage.setResizable(false);
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToCategory.getScene().getWindow());
         
         stage.show();
+    }
+
+    @FXML
+    private void pulsarUsuario(MouseEvent event) {
+        usuarioMenu.show();
+    }
+
+    @FXML
+    private void Configurar(ActionEvent event) {
+    }
+
+    @FXML
+    
+    private void LogOut(ActionEvent event) throws IOException {
+        Alert logOut = new Alert(Alert.AlertType.WARNING);
+      logOut.setTitle("Cerrar Sesión");
+        logOut.setHeaderText("¿Quiere cerrar sesión?");
+        logOut.setContentText("Si lo hace, tendrá que volver a iniciar sesión.");
+        logOut.showAndWait();
+        System.out.println("hola1");
+        Login_FXMLController.cuentaGastos.logOutUser();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
+        Parent root = loader.load();
+        Login_Main.scene = new Scene(root);
+        Login_Main.mainStage.setScene(Login_Main.scene);
+        Login_Main.mainStage.setTitle("Login Usuario");
+        Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
+        Login_Main.mainStage.setResizable(false);
+        Login_Main.mainStage.show();
+        System.out.println("hola2");
     }
        
 } 
