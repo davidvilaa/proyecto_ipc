@@ -25,52 +25,84 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <PasswordField fx:id="password" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="700.0" stroke="TRANSPARENT" strokeType="INSIDE" width="267.0" GridPane.rowIndex="2" />
+      <PasswordField fx:id="password" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="799.0" stroke="TRANSPARENT" strokeType="INSIDE" width="267.0" GridPane.rowIndex="2" />
       <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Nombre:" GridPane.columnIndex="1">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Usuario:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Usuario:" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="289.0" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="289.0" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="359.0" text="Correo Electrónico:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="359.0" text="Correo Electrónico:" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Imágen de Perfil:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Imágen de Perfil:" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="register_error" alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="250.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Button fx:id="register" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Label fx:id="register_error" alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="250.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Button fx:id="register" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
       <TextField fx:id="name" GridPane.columnIndex="2" />
-      <TextField fx:id="nickname" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <TextField fx:id="mail" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <TextField fx:id="nickname" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField fx:id="mail" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <ImageView fx:id="image" fitHeight="90.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Button fx:id="selectArchive" mnemonicParsing="false" onAction="#selectArchiveHandle" prefHeight="0.0" prefWidth="250.0" text="Seleccionar Archivo" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="252.0" text="(opcional)" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button fx:id="selectArchive" mnemonicParsing="false" onAction="#selectArchiveHandle" prefHeight="0.0" prefWidth="250.0" text="Seleccionar Archivo" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="252.0" text="(opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets top="40.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="atras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#atrasHandle" prefHeight="39.0" prefWidth="157.0" text="Atrás" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <Button fx:id="atras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#atrasHandle" prefHeight="39.0" prefWidth="157.0" text="Atrás" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Button>
+      <Label fx:id="name_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="nickname_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="password_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="mail_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </Label>
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Apellido:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="surname" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Label fx:id="surname_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </Label>
    </children>
    <padding>
       <Insets right="20.0" />

@@ -11,6 +11,8 @@ import java.io.IOException;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.*;
 
@@ -40,9 +42,20 @@ public class Login_FXMLController implements Initializable{
         window.setScene(scene);
         window.show();
     }
+    
+    @FXML
+    private void keyEnterLogin(KeyEvent event) throws IOException{
+        if(event.getCode() == KeyCode.ENTER){
+            login();
+        }
+    }
 
     @FXML
     private void loginHandle(ActionEvent event) throws IOException{
+        login();
+    }
+    
+    public void login() throws IOException{
         try{
             cuentaGastos = Acount.getInstance();
             if(!(nickname.getText().trim().isEmpty()) && !(password.getText().trim().isEmpty())){

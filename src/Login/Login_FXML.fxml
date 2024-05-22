@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Login_FXMLController">
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Login_FXMLController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,7 +38,7 @@
       <TextField fx:id="nickname" GridPane.columnIndex="2" />
       <Button fx:id="login_button" mnemonicParsing="false" onAction="#loginHandle" prefHeight="57.0" prefWidth="250.0" text="Iniciar Sesión" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="1056.0" stroke="TRANSPARENT" strokeType="INSIDE" width="251.0" />
-      <PasswordField fx:id="password" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <PasswordField fx:id="password" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Hyperlink alignment="CENTER" onAction="#goToRegister" prefHeight="23.0" prefWidth="278.0" text="¿No tienes Cuenta? Registrate Aquí." GridPane.columnIndex="2" GridPane.rowIndex="2">
          <font>
             <Font size="15.0" />

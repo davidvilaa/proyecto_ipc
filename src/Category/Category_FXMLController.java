@@ -42,7 +42,7 @@ public class Category_FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-             CategoryList.setItems(items);
+        CategoryList.setItems(items);
 
                
         ButtonDeleteCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
