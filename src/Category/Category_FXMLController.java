@@ -5,6 +5,7 @@
 package Category;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
@@ -17,7 +18,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 
 
 /**
@@ -42,7 +46,10 @@ public class Category_FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+<<<<<<< HEAD
         CategoryList.setItems(items);
+=======
+>>>>>>> ce832dc7db3d482d0a75a352cf5cb584b1dd3c61
 
                
         ButtonDeleteCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
@@ -54,10 +61,17 @@ public class Category_FXMLController implements Initializable {
     }    
     
      ObservableList<String> items = FXCollections.observableArrayList();
+     
     @FXML
     private void AddingCategory(ActionEvent event) {
-        Alert alert1 = new Alert(AlertType.CONFIRMATION);
-        alert1.setTitle("Categoría Nueva");
+       TextInputDialog dialog1 = new TextInputDialog(""); // Por defectodialog.setTitle("Diálogo de entrada de texto");
+        dialog1.setHeaderText("Nueva Categoría");
+        dialog1.setContentText("Introduce el nombre de la categoría nueva:");
+        Optional<String> result = dialog1.showAndWait();
+        if (result.isPresent()){
+           
+        
+}
     }
 
     @FXML
