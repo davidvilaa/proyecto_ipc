@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -45,12 +47,15 @@ public class AddGasto_FXMLController implements Initializable {
     @FXML
     private Label LabelCategory;
 
+    private final StringProperty selectedCategory = new SimpleStringProperty();
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-        ItemCategory1.setOnAction(event -> updateLabel(ItemCategory1.getText()));
-        ItemCategory2.setOnAction(event -> updateLabel(ItemCategory2.getText()));
+        ItemCategory1.setOnAction(event -> updateCategory(ItemCategory1.getText()));
+        ItemCategory2.setOnAction(event -> updateCategory(ItemCategory2.getText()));
         
         
         
@@ -59,12 +64,12 @@ public class AddGasto_FXMLController implements Initializable {
                 TitleText.getText().isEmpty() || 
                 DateText.getValue() == null || 
                 DescriptionText.getText().isEmpty() || 
-                CategoryText.getText().isEmpty(),
+                selectedCategory.get() == null || selectedCategory.get().isEmpty(),
                 CostText.textProperty(),
                 TitleText.textProperty(),
                 DateText.valueProperty(),
                 DescriptionText.textProperty(),
-                CategoryText.textProperty()
+                selectedCategory
         );
          
         ButtonAddCost.disableProperty().bind(areFieldsEmpty);
@@ -74,8 +79,10 @@ public class AddGasto_FXMLController implements Initializable {
         
     }    
     
-    private void updateLabel(String text) {
+    private void updateCategory(String text) {
+        selectedCategory.set(text); 
         LabelCategory.setText(text);
+        
     }
 
     @FXML
