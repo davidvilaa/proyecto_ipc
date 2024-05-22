@@ -17,7 +17,7 @@ public class AddGasto_Main extends Application {
         Parent root = loader.load();
         scene = new Scene(root);
         mainStage.setScene(scene);
-        mainStage.setTitle("Login Usuario");
+        mainStage.setTitle("Añadir Gasto");
         mainStage.getIcons().add(new Image("./assets/ww_black.png"));
         mainStage.setResizable(false);
         mainStage.show();
