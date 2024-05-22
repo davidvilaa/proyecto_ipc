@@ -46,7 +46,7 @@ public class MainMenu_FXMLController implements Initializable {
     @FXML
     private TableColumn<Charge, String> conceptColumn;
     @FXML
-    private TableColumn<Charge, String> priceColumn;
+    private TableColumn<Charge, Double> priceColumn;
     @FXML
     private TableColumn<Charge, String> dateColumn;
     
