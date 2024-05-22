@@ -47,8 +47,6 @@ public class Login_FXMLController implements Initializable{
             cuentaGastos = Acount.getInstance();
             if(!(nickname.getText().trim().isEmpty()) && !(password.getText().trim().isEmpty())){
                 if(cuentaGastos.logInUserByCredentials(nickname.getText(), password.getText())){
-                    login_button.setText("Inicio de Sesión Correcto");
-                    
                     Parent root2 = FXMLLoader.load(getClass().getResource("/MainMenu/MainMenu_FXML.fxml"));
                     Scene scene2 = new Scene(root2);
                     Stage window2 =(Stage) nickname.getScene().getWindow();
