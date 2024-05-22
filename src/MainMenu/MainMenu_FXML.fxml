@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
    <center>
       <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
@@ -159,23 +160,41 @@
          <children>
             <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER_RIGHT" centerShape="false" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="Bienvenido," textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                  <Label alignment="TOP_RIGHT" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="132.0" text="Bienvenido," textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="5.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="bienvenido" accessibleRole="MENU">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin></Label>
-                  <ImageView fitHeight="49.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/ww_white.png" />
-                     </image>
-                  </ImageView>
+                  <VBox>
+                     <children>
+                        <HBox onMouseEntered="#usuariopasar" onMouseExited="#usuarionopasar" prefHeight="66.0" prefWidth="113.0">
+                           <children>
+                              <Label fx:id="bienvenido" accessibleRole="MENU" alignment="BOTTOM_CENTER" onMouseClicked="#usuariomenu" onMouseEntered="#usuariopasar" onMouseExited="#usuarionopasar" prefHeight="18.0" prefWidth="47.0" text="defecto" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="23.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <ImageView fx:id="fotoperfil" fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets right="8.0" top="5.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <ImageView fitHeight="58.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
