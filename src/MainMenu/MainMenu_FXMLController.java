@@ -71,6 +71,7 @@ public class MainMenu_FXMLController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Añadir Gasto");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToAddGasto.getScene().getWindow());
@@ -86,6 +87,7 @@ public class MainMenu_FXMLController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Categorías");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToCategory.getScene().getWindow());

@@ -18,7 +18,10 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
-
+import model.*;
+import java.io.*;
+import java.util.List;
+import javafx.event.EventType;
 
 public class Category_FXMLController implements Initializable {
 
@@ -34,36 +37,132 @@ public class Category_FXMLController implements Initializable {
    ObservableList<String> items = FXCollections.observableArrayList();
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){
         ButtonDeleteCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
         ButtonEditCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
         
+        try{
+            loadCategories();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
         CategoryList.setItems(items);
     }
-     
+    
+    public void loadCategories() throws IOException{
+        try{
+            List<Category> categories = Acount.getInstance().getUserCategories();
+            for(Category category : categories){
+                items.add(category.getName());
+            }
+        }
+        catch(AcountDAOException e){
+            e.printStackTrace();
+        }
+    }
+    
+    public boolean checkNombre(String name) throws IOException{
+        try{
+            List<Category> categories = Acount.getInstance().getUserCategories();
+            for(Category category : categories){
+                if(category.getName().equals(name)){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setHeaderText("ERROR: Ya existe una categoría con este nombre");
+                    alert.showAndWait();
+                    return true;
+                }
+            }
+        }
+        catch(AcountDAOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
     @FXML
-    private void AddingCategory(ActionEvent event) {
-        TextInputDialog dialog1 = new TextInputDialog(""); // Por defectodialog.setTitle("Diálogo de entrada de texto");
-        dialog1.setHeaderText("Nueva Categoría");
-        dialog1.setContentText("Introduce el nombre de la categoría nueva:");
-        Optional<String> result = dialog1.showAndWait();
-        if (result.isPresent()){
-           items.add(result.get());
-           CategoryList.setItems(items);
+    private void AddingCategory(ActionEvent event) throws IOException{
+        TextInputDialog dialog1 = new TextInputDialog("");
+        dialog1.setTitle("");
+        dialog1.setHeaderText("Introduce el nombre de la categoría nueva:");
+        Optional<String> name = dialog1.showAndWait();
+        
+        TextInputDialog dialog2 = new TextInputDialog("");
+        dialog2.setTitle("");
+        dialog2.setHeaderText("Introduce una descripción de la categoría nueva");
+        Optional<String> description = dialog2.showAndWait();
+        
+        if(checkNombre(name.get())){
+            return;
+        }
+        
+        if (name.isPresent() && description.isPresent()){
+            try{
+                items.add(name.get());
+                CategoryList.setItems(items);
+                Acount.getInstance().registerCategory(name.get(), description.get());
+            }
+            catch(AcountDAOException e){
+                e.printStackTrace();
+            }
         }
     }
 
     @FXML
-    private void EditingCategory(ActionEvent event) {
+    private void EditingCategory(ActionEvent event) throws IOException{
+        TextInputDialog dialog1 = new TextInputDialog("");
+        dialog1.setTitle("");
+        dialog1.setHeaderText("Introduce el nuevo nombre");
+        Optional<String> name = dialog1.showAndWait();
         
+        TextInputDialog dialog2 = new TextInputDialog("");
+        dialog2.setTitle("");
+        dialog2.setHeaderText("Introduce la nueva descripción");
+        Optional<String> description = dialog2.showAndWait();
+        
+        if(checkNombre(name.get())){
+            return;
+        }
+        
+        if(name.isPresent() && description.isPresent()){
+            String selectedItem = CategoryList.getSelectionModel().getSelectedItem();
+            Category remove = null;
+            try{
+                List<Category> categories = Acount.getInstance().getUserCategories();
+                for(Category category : categories){
+                    if(category.getName().equals(selectedItem)){
+                        remove = category;
+                    }
+                }
+                Acount.getInstance().removeCategory(remove);
+                Acount.getInstance().registerCategory(name.get(), description.get());
+                items.remove(selectedItem);
+                items.add(name.get());
+                CategoryList.setItems(items);
+            }
+            catch(AcountDAOException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
-    private void DeletingCategory(ActionEvent event) {
+    private void DeletingCategory(ActionEvent event) throws IOException{
         String selectedItem = CategoryList.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            items.remove(selectedItem);
-    }
-    
+        Category remove = null;
+        try{
+            List<Category> categories = Acount.getInstance().getUserCategories();
+            for(Category category : categories){
+                if(category.getName().equals(selectedItem)){
+                    remove = category;
+                    items.remove(selectedItem);
+                    CategoryList.setItems(items);
+                }
+            }
+            Acount.getInstance().removeCategory(remove);
+        }
+        catch(AcountDAOException e){
+            e.printStackTrace();
+        }
     }
 }

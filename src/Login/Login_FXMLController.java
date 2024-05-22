@@ -24,22 +24,27 @@ public class Login_FXMLController implements Initializable{
     public PasswordField password;
     @FXML
     public Button login_button;
+    
     public static Acount cuentaGastos;
     
+    public static User getCuenta(){
+        return cuentaGastos.getLoggedUser();
+    }
     
     public static String getNombrecuentaGastos() {
-    return cuentaGastos.getLoggedUser().getName();
-}
-    public static Image getImagencuentaGastos() {
-    return cuentaGastos.getLoggedUser().getImage();
+        return cuentaGastos.getLoggedUser().getName();
     }
-    @FXML
+    public static Image getImagencuentaGastos() {
+        return cuentaGastos.getLoggedUser().getImage();
+    }
     
+    @FXML
     private void goToRegister(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/Register/Register_FXML.fxml"));
         Scene scene = new Scene(root);
         Stage window = (Stage) nickname.getScene().getWindow();
         window.setScene(scene);
+        window.setTitle("Registro");
         window.show();
     }
     

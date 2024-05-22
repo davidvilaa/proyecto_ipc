@@ -153,6 +153,7 @@ public class Register_FXMLController implements Initializable {
         Scene scene = new Scene(root);
         Stage window = (Stage) nickname.getScene().getWindow();
         window.setScene(scene);
+        window.setTitle("Login");
         window.show();
     }
     
