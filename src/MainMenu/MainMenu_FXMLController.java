@@ -39,6 +39,17 @@ public class MainMenu_FXMLController implements Initializable {
     private Button goToModificar;
     @FXML
     private Button goToBorrar;
+    @FXML
+    private TableView<Charge> chargeTable;
+    @FXML
+    private TableColumn<Charge, String> categoryColumn;
+    @FXML
+    private TableColumn<Charge, String> conceptColumn;
+    @FXML
+    private TableColumn<Charge, String> priceColumn;
+    @FXML
+    private TableColumn<Charge, String> dateColumn;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

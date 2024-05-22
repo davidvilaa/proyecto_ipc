@@ -5,7 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -59,7 +58,7 @@
       </HBox>
    </top>
    <center>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane prefHeight="319.0" prefWidth="535.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="90.39996337890625" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="161.99999999999997" />
@@ -67,11 +66,12 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.79998779296875" minWidth="10.0" prefWidth="90.39996337890625" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="103.8000244140625" minHeight="10.0" prefHeight="64.59998779296875" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="159.79999389648438" minHeight="10.0" prefHeight="57.59999999999998" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="107.99999084472654" minHeight="10.0" prefHeight="71.00001220703123" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="74.79998168945312" minHeight="10.0" prefHeight="61.59998779296876" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="42.99997558593748" minHeight="10.0" prefHeight="42.99997558593748" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="103.8000244140625" minHeight="10.0" prefHeight="39.19999389648437" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="159.79999389648438" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="107.99999084472654" minHeight="10.0" prefHeight="66.79999999999998" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="91.6" minHeight="10.0" prefHeight="46.20001220703125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="88.59999389648436" minHeight="10.0" prefHeight="60.59996337890627" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="76.60002441406249" minHeight="10.0" prefHeight="67.80003662109374" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Categoría:" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
@@ -124,10 +124,6 @@
                </font>
             </Label>
             <MenuButton fx:id="CategoryText" mnemonicParsing="false" prefHeight="28.0" prefWidth="199.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-              <items>
-                <MenuItem fx:id="ItemCategory1" mnemonicParsing="false" text="olmo es chota" />
-                <MenuItem fx:id="ItemCategory2" mnemonicParsing="false" text="pov borja" />
-              </items>
                <GridPane.margin>
                   <Insets left="15.0" right="10.0" />
                </GridPane.margin>
@@ -150,11 +146,21 @@
                   <Insets left="15.0" right="10.0" />
                </GridPane.margin></DatePicker>
             <TextArea fx:id="DescriptionText" prefHeight="75.0" prefWidth="245.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button fx:id="ButtonAddCost" mnemonicParsing="false" onAction="#AddingCost" text="Añadir" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Button fx:id="ButtonAddCost" mnemonicParsing="false" onAction="#AddingCost" text="Añadir" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="20.0" top="10.0" />
                </GridPane.margin>
             </Button>
+            <Label text="Imagen:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageCost" fitHeight="60.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="selectImage" mnemonicParsing="false" text="Seleccionar archivo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -168,6 +174,6 @@
       <VBox prefWidth="30.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <HBox maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+      <HBox maxWidth="1.7976931348623157E308" prefHeight="10.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

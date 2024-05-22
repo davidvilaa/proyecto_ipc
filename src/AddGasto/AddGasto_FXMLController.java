@@ -1,11 +1,17 @@
 package AddGasto;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +22,11 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import model.*;
 
 public class AddGasto_FXMLController implements Initializable {
 
@@ -32,22 +43,30 @@ public class AddGasto_FXMLController implements Initializable {
     @FXML
     private MenuButton CategoryText;
     @FXML
-    private MenuItem ItemCategory1;
-    @FXML
-    private MenuItem ItemCategory2;
-    @FXML
     private Label LabelCategory;
 
     private final StringProperty selectedCategory = new SimpleStringProperty();
-
     
+    ObservableList<MenuItem> categories = FXCollections.observableArrayList();
+    
+    Category category = null;
+    
+    @FXML
+    private ImageView imageCost;
+    @FXML
+    private Button selectImage;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-        ItemCategory1.setOnAction(event -> updateCategory(ItemCategory1.getText()));
-        ItemCategory2.setOnAction(event -> updateCategory(ItemCategory2.getText()));
-        
+        try{
+          addCategories();
+          CategoryText.getItems().addAll(categories);
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
         
         
         BooleanBinding areFieldsEmpty = Bindings.createBooleanBinding(() -> 
@@ -65,10 +84,27 @@ public class AddGasto_FXMLController implements Initializable {
          
         ButtonAddCost.disableProperty().bind(areFieldsEmpty);
 
-         
+    } 
+    
+    private void addCategories() throws IOException {
+        try{
+            List<Category> categoryList = Acount.getInstance().getUserCategories();
+            if(categoryList == null || categoryList.isEmpty()) return;
+            for(Category category : categoryList){
+                MenuItem item = new MenuItem();
+                String a = category.getName();
+                item.setText(a);
+                item.setOnAction(event -> {
+                updateCategory(item.getText());
+                });
+                categories.add(item);
+            }
+        } 
+        catch(AcountDAOException e){
+            e.printStackTrace();
+        }
         
-        
-    }    
+    }
     
     private void updateCategory(String text) {
         selectedCategory.set(text); 
@@ -77,7 +113,36 @@ public class AddGasto_FXMLController implements Initializable {
     }
 
     @FXML
-    private void AddingCost(ActionEvent event) {
+    private void AddingCost(ActionEvent event) throws IOException{
+        
+    LocalDate date = DateText.getValue();
+    double cost = Double.parseDouble(CostText.getText());
+    
+    try{
+        Acount.getInstance().registerCharge(TitleText.getText(), DescriptionText.getText(), cost, 0, imageCost.getImage(), date, category);
+        //falta arreglar el category david cabra
+    }
+    catch(AcountDAOException a){
+        a.printStackTrace();
+    }
+    }
+    
+    @FXML
+    public void selectArchiveHandle(ActionEvent event){
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Selecciona una Imágen");
+        
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("*.png","*.jpg","*.jpeg"));
+        
+        File file = fc.showOpenDialog(new Stage());
+        
+        if(file != null){
+            Image file_image = new Image(file.toURI().toString());
+            imageCost.setImage(file_image);
+            selectImage.setVisible(false);
+            imageCost.setVisible(true);
+            
+        }
     }
     
 }

@@ -17,14 +17,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="chargeTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="120.0" text="Categoria" />
-          <TableColumn prefWidth="122.4000244140625" text="Concepto" />
-            <TableColumn prefWidth="112.0" text="Precio" />
-            <TableColumn prefWidth="120.0" text="Fecha" />
+          <TableColumn fx:id="categoryColumn" prefWidth="120.0" text="Categoria" />
+          <TableColumn fx:id="conceptColumn" prefWidth="122.4000244140625" text="Concepto" />
+            <TableColumn fx:id="priceColumn" prefWidth="112.0" text="Precio" />
+            <TableColumn fx:id="dateColumn" prefWidth="120.0" text="Fecha" />
         </columns>
          <BorderPane.margin>
             <Insets top="10.0" />
