@@ -1,28 +1,19 @@
 package MainMenu;
 
-
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import model.Acount;
-import model.AcountDAOException;
-import java.io.IOException;
+import javafx.scene.control.Label;
+
 public class MainMenu_FXMLController implements Initializable {
 
-    public Label BienvenidoUsuario;
-    
+    @FXML
+    private Label bienvenido;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     try{
-     Acount user = Acount.getInstance();
-     BienvenidoUsuario.setText(user.getLoggedUser().getName());
-    }
-     catch(AcountDAOException e){
-          e.printStackTrace();
-    }catch(IOException e){
-        e.printStackTrace();
-    }
-    }
+        // TODO
+    }    
+    
 }
