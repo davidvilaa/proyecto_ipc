@@ -4,6 +4,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
@@ -17,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
    <center>
       <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
@@ -174,31 +176,44 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <VBox>
+                  <VBox onMouseClicked="#pulsarUsuario" onMouseEntered="#usuariopasar" onMouseExited="#usuarionopasar">
                      <children>
-                        <HBox onMouseEntered="#usuariopasar" onMouseExited="#usuarionopasar" prefHeight="66.0" prefWidth="113.0">
+                        <GridPane prefHeight="58.0" prefWidth="140.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.20001220703125" minWidth="10.0" prefWidth="68.800048828125" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.39995117187499" minWidth="10.0" prefWidth="70.39995117187499" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
                               <Label fx:id="bienvenido" accessibleRole="MENU" alignment="BOTTOM_CENTER" onMouseClicked="#usuariomenu" onMouseEntered="#usuariopasar" onMouseExited="#usuarionopasar" prefHeight="18.0" prefWidth="47.0" text="defecto" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
-                                 <HBox.margin>
-                                    <Insets top="23.0" />
-                                 </HBox.margin>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
+                                 <GridPane.margin>
+                                    <Insets top="9.0" />
+                                 </GridPane.margin>
                               </Label>
-                              <ImageView fx:id="fotoperfil" fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets right="8.0" top="5.0" />
-                                 </HBox.margin>
+                              <ImageView fx:id="fotoperfil" fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
+                              <MenuButton fx:id="usuarioMenu" mnemonicParsing="false" prefHeight="18.0" prefWidth="66.0" style="-fx-background-color: invisible;">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#Configurar" text="Configuración" />
+                                  <MenuItem mnemonicParsing="false" onAction="#LogOut" text="Log Out" />
+                                </items>
+                                 <GridPane.margin>
+                                    <Insets top="9.0" />
+                                 </GridPane.margin>
+                              </MenuButton>
                            </children>
-                        </HBox>
+                        </GridPane>
                      </children>
                   </VBox>
                </children>
