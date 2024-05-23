@@ -208,7 +208,7 @@
                               </ImageView>
                               <MenuButton fx:id="usuarioMenu" mnemonicParsing="false" prefHeight="18.0" prefWidth="66.0" style="-fx-background-color: invisible;">
                                 <items>
-                                  <MenuItem mnemonicParsing="false" onAction="#Configurar" text="Configuración" />
+                                  <MenuItem fx:id="configuracion" mnemonicParsing="false" onAction="#Configurar" text="Configuración" />
                                   <MenuItem mnemonicParsing="false" onAction="#LogOut" text="Log Out" />
                                 </items>
                                  <GridPane.margin>
@@ -226,6 +226,11 @@
                   <Image url="@../assets/logo-gif.gif" />
                </image>
             </ImageView>
+            <Button fx:id="NOBORRAR" disable="true" mnemonicParsing="false" prefHeight="5.0" prefWidth="0.0" text="Button" visible="false">
+               <GridPane.margin>
+                  <Insets bottom="200.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </top>

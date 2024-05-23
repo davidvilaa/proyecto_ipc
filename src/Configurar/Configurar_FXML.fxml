@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Configurar.Configurar_FXMLController">
+   <center>
+      <GridPane prefHeight="400.0" prefWidth="601.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.20001220703125" minWidth="10.0" prefWidth="132.20001220703125" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.5999755859375" minWidth="10.0" prefWidth="269.79998779296875" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="602.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1837037056684494" green="0.42598310112953186" blue="0.6526315808296204" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.09263157844543457" green="3.856564169905981E-17" blue="0.34736841917037964" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label text="Configurar Datos de Usuario" textFill="WHITE" GridPane.columnSpan="3">
+               <font>
+                  <Font name="SansSerif Bold Italic" size="43.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="75.0" text="Nickname:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="configurarNickname" disable="true" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER" />
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="63.0" text="Nombre:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="configurarNombre" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER" />
+            <TextField fx:id="configurarApellido" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="63.0" text="Apellido:" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="56.0" text="Correo:" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="configurarCorreo" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="138.0" text="Antigua Contraseña:" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="fotoQueSeConfigura" fitHeight="136.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label fx:id="configurarFoto" onMouseClicked="#cambiarNuevaFoto" text="Cambiar Foto" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+            <Button fx:id="guardarNuevaConfiguracion" mnemonicParsing="false" onMouseClicked="#guardar" prefHeight="30.0" prefWidth="63.0" text="Guardar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Button>
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="138.0" text="Nueva Contraseña:" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="antiguaContraseña" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+            <PasswordField fx:id="nuevaContraseña" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+            <Button fx:id="guardarNuevaConfiguracion1" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" text="Cancelar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="name_error" alignment="TOP_LEFT" prefHeight="18.0" prefWidth="211.0" text="Label" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+            <Label fx:id="surname_error" alignment="TOP_LEFT" prefHeight="18.0" prefWidth="220.0" text="Label" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+            <Label fx:id="mail_error" alignment="TOP_LEFT" prefHeight="18.0" prefWidth="208.0" text="Label" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+            <Label fx:id="password_error" alignment="TOP_LEFT" prefHeight="18.0" prefWidth="208.0" text="Label" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="7" GridPane.valignment="TOP" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

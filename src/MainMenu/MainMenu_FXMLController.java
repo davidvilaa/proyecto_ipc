@@ -20,6 +20,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Login.Login_Main;
 import ViewGasto.ViewGasto_FXMLController;
+import EditGasto.EditGasto_FXMLController;
 import java.time.LocalDate;
 import java.util.List;
 import javafx.beans.binding.Bindings;
@@ -27,6 +28,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.layout.StackPane;
 
 public class MainMenu_FXMLController implements Initializable {
 
@@ -56,6 +60,10 @@ public class MainMenu_FXMLController implements Initializable {
     private TableColumn<Charge, LocalDate> dateColumn;
     @FXML
     private MenuButton usuarioMenu;
+    @FXML
+    private MenuItem configuracion;
+    @FXML
+    private Button NOBORRAR;
     
     private ObservableList<Charge> cargos = FXCollections.observableArrayList();
     
@@ -164,8 +172,26 @@ public class MainMenu_FXMLController implements Initializable {
     }
     
     @FXML
-    private void goToModificarHandle(){
+    private void goToModificarHandle() throws IOException{
+        Charge selected = chargeTable.getSelectionModel().getSelectedItem();
+        String costString = Double.toString(selected.getCost());
         
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/EditGasto/EditGasto_FXML.fxml"));
+        Parent root = loader.load();
+        
+        EditGasto_FXMLController viewController = loader.getController();
+        viewController.initializateData(selected.getCategory().toString(), costString,
+                selected.getDate(), selected.getName(), selected.getDescription(), 
+                selected.getImageScan());
+        
+        Stage stage = new Stage();
+        stage.setTitle("Visualizar Gasto");
+        stage.setScene(new Scene(root));
+        
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(goToCategory.getScene().getWindow());
+        
+        stage.show();
     }
     
     @FXML
@@ -189,7 +215,20 @@ public class MainMenu_FXMLController implements Initializable {
     }
 
     @FXML
-    private void Configurar(ActionEvent event) {
+    private void Configurar(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Configurar/Configurar_FXML.fxml"));
+        Parent root = loader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Configurar datos");
+        stage.setScene(new Scene(root));
+        
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(NOBORRAR.getScene().getWindow());
+        
+        stage.showAndWait();
+        bienvenido.setText(Login_FXMLController.getNombrecuentaGastos());
+        fotoperfil.setImage(Login_FXMLController.getImagencuentaGastos());
     }
 
     @FXML
@@ -207,6 +246,6 @@ public class MainMenu_FXMLController implements Initializable {
         Login_Main.mainStage.setTitle("Login Usuario");
         Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
         Login_Main.mainStage.setResizable(false);
-        Login_Main.mainStage.show();
+        Login_Main.mainStage.showAndWait();
     }
 }
