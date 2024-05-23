@@ -1,7 +1,5 @@
 package MainMenu;
 
-
-
 import Login.Login_FXMLController;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,9 +74,10 @@ public class MainMenu_FXMLController implements Initializable {
         goToModificar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
         goToBorrar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
             
-        categoryColumn.setCellValueFactory(new PropertyValueFactory<Charge, Category>("category"));
-        conceptColumn.setCellValueFactory(new PropertyValueFactory<Charge, String>("name"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<Charge, Double>("cost"));
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+        categoryColumn.setCellFactory((c) -> new Celda());
+        conceptColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Charge, LocalDate>("date"));
         
         try{
@@ -157,7 +156,7 @@ public class MainMenu_FXMLController implements Initializable {
         Parent root = loader.load();
         
         ViewGasto_FXMLController viewController = loader.getController();
-        viewController.initializateData(selected.getCategory().toString(), costString,
+        viewController.initializateData(selected.getCategory().getName(), costString,
                 selected.getDate().toString(), selected.getName(), selected.getDescription(), 
                 selected.getImageScan());
         
@@ -180,7 +179,7 @@ public class MainMenu_FXMLController implements Initializable {
         Parent root = loader.load();
         
         EditGasto_FXMLController viewController = loader.getController();
-        viewController.initializateData(selected.getCategory().toString(), costString,
+        viewController.initializateData(selected.getCategory().getName(), costString,
                 selected.getDate(), selected.getName(), selected.getDescription(), 
                 selected.getImageScan());
         
@@ -225,8 +224,9 @@ public class MainMenu_FXMLController implements Initializable {
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(NOBORRAR.getScene().getWindow());
-        
+        stage.getIcons().add(new Image("./assets/ww_black.png"));
         stage.showAndWait();
+        
         bienvenido.setText(Login_FXMLController.getNombrecuentaGastos());
         fotoperfil.setImage(Login_FXMLController.getImagencuentaGastos());
     }

@@ -106,15 +106,13 @@ public class AddGasto_FXMLController implements Initializable {
         } 
         catch(AcountDAOException e){
             e.printStackTrace();
-        }
-        
+        } 
     }
     
     private void updateCategory(Category category) {
         this.category = category;
         selectedCategory.set(category.getName()); 
         LabelCategory.setText(category.getName());
-        
     }
 
     @FXML
