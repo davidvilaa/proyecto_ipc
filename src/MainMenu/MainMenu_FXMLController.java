@@ -23,6 +23,12 @@ import javafx.scene.Parent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Login.Login_Main;
+import java.time.LocalDate;
+import java.util.List;
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 
 public class MainMenu_FXMLController implements Initializable {
@@ -44,23 +50,53 @@ public class MainMenu_FXMLController implements Initializable {
     @FXML
     private TableView<Charge> chargeTable;
     @FXML
-    private TableColumn<Charge, String> categoryColumn;
+    private TableColumn<Charge, Category> categoryColumn;
     @FXML
     private TableColumn<Charge, String> conceptColumn;
     @FXML
     private TableColumn<Charge, Double> priceColumn;
     @FXML
-    private TableColumn<Charge, String> dateColumn;
-    
+    private TableColumn<Charge, LocalDate> dateColumn;
+    @FXML
     private MenuButton usuarioMenu;
-
+    
+    private ObservableList<Charge> cargos = FXCollections.observableArrayList();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            bienvenido.setText(Login_FXMLController.getNombrecuentaGastos());
-            fotoperfil.setImage(Login_FXMLController.getImagencuentaGastos());
+        bienvenido.setText(Login_FXMLController.getNombrecuentaGastos());
+        fotoperfil.setImage(Login_FXMLController.getImagencuentaGastos());
+        
+        goToVisualizar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
+        goToModificar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
+        goToBorrar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
+            
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<Charge, Category>("category"));
+        conceptColumn.setCellValueFactory(new PropertyValueFactory<Charge, String>("name"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<Charge, Double>("cost"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Charge, LocalDate>("date"));
+        
+        try{
+            updateCharges();
         }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
-
+    public void updateCharges() throws IOException{
+        try{
+            List<Charge> charges = Acount.getInstance().getUserCharges();
+            for(Charge charge : charges){
+                cargos.add(charge);
+            }
+            chargeTable.setItems(cargos);
+        }
+        catch(AcountDAOException e){
+            e.printStackTrace();
+        }
+    }
+    
     @FXML
     private void usuariomenu(MouseEvent event) {
     }
@@ -106,6 +142,31 @@ public class MainMenu_FXMLController implements Initializable {
         
         stage.show();
     }
+    
+    @FXML
+    private void goToVisualizarHandle(){
+        
+    }
+    
+    @FXML
+    private void goToModificarHandle(){
+        
+    }
+    
+    @FXML
+    private void goToBorrarHandle() throws IOException{
+        Charge selectedCharge = chargeTable.getSelectionModel().getSelectedItem();
+        
+        try{
+            cargos.remove(selectedCharge);
+            chargeTable.setItems(cargos);
+            
+            Acount.getInstance().removeCharge(selectedCharge);
+        }
+        catch(AcountDAOException e3){
+            e3.printStackTrace();
+        }
+    }
 
     @FXML
     private void pulsarUsuario(MouseEvent event) {
@@ -120,11 +181,10 @@ public class MainMenu_FXMLController implements Initializable {
     
     private void LogOut(ActionEvent event) throws IOException {
         Alert logOut = new Alert(Alert.AlertType.WARNING);
-      logOut.setTitle("Cerrar Sesión");
+        logOut.setTitle("Cerrar Sesión");
         logOut.setHeaderText("¿Quiere cerrar sesión?");
         logOut.setContentText("Si lo hace, tendrá que volver a iniciar sesión.");
         logOut.showAndWait();
-        System.out.println("hola1");
         Login_FXMLController.cuentaGastos.logOutUser();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
         Parent root = loader.load();
@@ -134,7 +194,6 @@ public class MainMenu_FXMLController implements Initializable {
         Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
         Login_Main.mainStage.setResizable(false);
         Login_Main.mainStage.show();
-        System.out.println("hola2");
     }
        
-} 
+}

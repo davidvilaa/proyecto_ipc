@@ -1,5 +1,6 @@
 package AddGasto;
 
+import MainMenu.MainMenu_FXMLController;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -13,8 +14,10 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import javafx.fxml.*;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -58,7 +61,8 @@ public class AddGasto_FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        imageCost.setImage(new Image("./assets/default_user.png"));
+        imageCost.setVisible(false);
         
         try{
           addCategories();
@@ -95,7 +99,7 @@ public class AddGasto_FXMLController implements Initializable {
                 String a = category.getName();
                 item.setText(a);
                 item.setOnAction(event -> {
-                updateCategory(item.getText());
+                updateCategory(category);
                 });
                 categories.add(item);
             }
@@ -106,25 +110,30 @@ public class AddGasto_FXMLController implements Initializable {
         
     }
     
-    private void updateCategory(String text) {
-        selectedCategory.set(text); 
-        LabelCategory.setText(text);
+    private void updateCategory(Category category) {
+        this.category = category;
+        selectedCategory.set(category.getName()); 
+        LabelCategory.setText(category.getName());
         
     }
 
     @FXML
     private void AddingCost(ActionEvent event) throws IOException{
-        
-    LocalDate date = DateText.getValue();
-    double cost = Double.parseDouble(CostText.getText());
+        LocalDate date = DateText.getValue();
+        double cost = Double.parseDouble(CostText.getText());
+
+        try{
+            Acount.getInstance().registerCharge(TitleText.getText(), DescriptionText.getText(), cost, 0, imageCost.getImage(), date, category);
+            goToMainMenu();
+        }
+        catch(AcountDAOException a){
+            a.printStackTrace();
+        }
+    }
     
-    try{
-        Acount.getInstance().registerCharge(TitleText.getText(), DescriptionText.getText(), cost, 0, imageCost.getImage(), date, category);
-        //falta arreglar el category david cabra
-    }
-    catch(AcountDAOException a){
-        a.printStackTrace();
-    }
+    public void goToMainMenu() throws IOException{
+        Stage stage = (Stage) CostText.getScene().getWindow();
+        stage.close();
     }
     
     @FXML
@@ -141,7 +150,6 @@ public class AddGasto_FXMLController implements Initializable {
             imageCost.setImage(file_image);
             selectImage.setVisible(false);
             imageCost.setVisible(true);
-            
         }
     }
     

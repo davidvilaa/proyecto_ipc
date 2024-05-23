@@ -160,7 +160,7 @@
                </font>
             </Label>
             <ImageView fx:id="imageCost" fitHeight="60.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="selectImage" mnemonicParsing="false" text="Seleccionar archivo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Button fx:id="selectImage" mnemonicParsing="false" onAction="#selectArchiveHandle" text="Seleccionar archivo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
          </children>
          <BorderPane.margin>
             <Insets />
