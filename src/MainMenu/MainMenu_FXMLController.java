@@ -2,7 +2,6 @@ package MainMenu;
 
 
 
-import AddGasto.AddGasto_Main;
 import Login.Login_FXMLController;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,16 +12,14 @@ import model.*;
 import java.io.*;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import javafx.scene.control.*;
 import javafx.event.*;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Login.Login_Main;
+import ViewGasto.ViewGasto_FXMLController;
 import java.time.LocalDate;
 import java.util.List;
 import javafx.beans.binding.Bindings;
@@ -48,7 +45,7 @@ public class MainMenu_FXMLController implements Initializable {
     @FXML
     private Button goToBorrar;
     @FXML
-    private TableView<Charge> chargeTable;
+    public TableView<Charge> chargeTable;
     @FXML
     private TableColumn<Charge, Category> categoryColumn;
     @FXML
@@ -144,8 +141,26 @@ public class MainMenu_FXMLController implements Initializable {
     }
     
     @FXML
-    private void goToVisualizarHandle(){
+    private void goToVisualizarHandle() throws IOException{
+        Charge selected = chargeTable.getSelectionModel().getSelectedItem();
+        String costString = Double.toString(selected.getCost());
         
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewGasto/ViewGasto_FXML.fxml"));
+        Parent root = loader.load();
+        
+        ViewGasto_FXMLController viewController = loader.getController();
+        viewController.initializateData(selected.getCategory().toString(), costString,
+                selected.getDate().toString(), selected.getName(), selected.getDescription(), 
+                selected.getImageScan());
+        
+        Stage stage = new Stage();
+        stage.setTitle("Visualizar Gasto");
+        stage.setScene(new Scene(root));
+        
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(goToCategory.getScene().getWindow());
+        
+        stage.show();
     }
     
     @FXML
@@ -178,7 +193,6 @@ public class MainMenu_FXMLController implements Initializable {
     }
 
     @FXML
-    
     private void LogOut(ActionEvent event) throws IOException {
         Alert logOut = new Alert(Alert.AlertType.WARNING);
         logOut.setTitle("Cerrar Sesión");
@@ -195,5 +209,4 @@ public class MainMenu_FXMLController implements Initializable {
         Login_Main.mainStage.setResizable(false);
         Login_Main.mainStage.show();
     }
-       
 }
