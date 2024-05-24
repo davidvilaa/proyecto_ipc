@@ -106,6 +106,13 @@ public class Register_FXMLController implements Initializable {
     }
     
     @FXML
+    private void keyEnterRegister(KeyEvent event) throws IOException, AcountDAOException {
+        if(event.getCode() == KeyCode.ENTER){
+            register();
+        }
+    }
+    
+    @FXML
     public void registerHandle(ActionEvent event) throws AcountDAOException, IOException{
         register();
     }
@@ -162,13 +169,7 @@ public class Register_FXMLController implements Initializable {
         window.setTitle("Login");
         window.show();
     }
-    
-    private void keyEnterRegister(KeyEvent event) throws IOException, AcountDAOException {
-        if(event.getCode() == KeyCode.ENTER){
-            register();
-        }
-    }
-    
+     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         image.setVisible(false);

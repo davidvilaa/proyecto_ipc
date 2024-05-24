@@ -339,7 +339,7 @@ public class MainMenu_FXMLController implements Initializable {
         boolean draw = true;
         TableView.TableViewSelectionModel<Charge> selectionModel = chargeTable.getSelectionModel();
         ObservableList<TableColumn<Charge, ?>> columns = chargeTable.getColumns();
-        double[] columnsWidthPercentage = {0.1, 0.2, 0.2, 0.3};
+        double[] columnsWidthPercentage = {0.1, 0.2, 0.2, 0.2, 0.2};
 
         
         contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);

@@ -35,7 +35,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="nickname" GridPane.columnIndex="2" />
+      <TextField fx:id="nickname" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" GridPane.columnIndex="2" />
       <Button fx:id="login_button" mnemonicParsing="false" onAction="#loginHandle" prefHeight="57.0" prefWidth="250.0" text="Iniciar Sesión" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="1056.0" stroke="TRANSPARENT" strokeType="INSIDE" width="251.0" />
       <PasswordField fx:id="password" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" GridPane.columnIndex="2" GridPane.rowIndex="1" />
