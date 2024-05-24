@@ -72,6 +72,8 @@ public class MainMenu_FXMLController implements Initializable {
     @FXML
     private TableColumn<Charge, LocalDate> dateColumn;
     @FXML
+    private TableColumn<Charge, Integer> unitColumn;
+    @FXML
     private MenuButton usuarioMenu;
     @FXML
     private MenuItem configuracion;
@@ -103,12 +105,13 @@ public class MainMenu_FXMLController implements Initializable {
         goToVisualizar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
         goToModificar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
         goToBorrar.disableProperty().bind(Bindings.equal(-1,chargeTable.getSelectionModel().selectedIndexProperty()));
-            
+        
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
         categoryColumn.setCellFactory((c) -> new Celda());
         conceptColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<Charge, LocalDate>("date"));
+        unitColumn.setCellValueFactory(new PropertyValueFactory<>("units"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         
         filteredCharges = new FilteredList<>(cargos);
         
@@ -199,14 +202,16 @@ public class MainMenu_FXMLController implements Initializable {
     private void goToVisualizarHandle() throws IOException{
         Charge selected = chargeTable.getSelectionModel().getSelectedItem();
         String costString = Double.toString(selected.getCost());
+        String cantidadString = Integer.toString(selected.getUnits());
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewGasto/ViewGasto_FXML.fxml"));
         Parent root = loader.load();
         
         ViewGasto_FXMLController viewController = loader.getController();
         viewController.initializateData(selected.getCategory().getName(), costString,
-                selected.getDate().toString(), selected.getName(), selected.getDescription(), 
-                selected.getImageScan());
+                cantidadString,
+                selected.getDate().toString(), selected.getName(), 
+                selected.getDescription(),selected.getImageScan());
         
         Stage stage = new Stage();
         stage.setTitle("Visualizar Gasto");
@@ -222,14 +227,15 @@ public class MainMenu_FXMLController implements Initializable {
     private void goToModificarHandle() throws IOException{
         Charge selected = chargeTable.getSelectionModel().getSelectedItem();
         String costString = Double.toString(selected.getCost());
+        String cantidadString = Integer.toString(selected.getUnits());
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/EditGasto/EditGasto_FXML.fxml"));
         Parent root = loader.load();
         
         EditGasto_FXMLController viewController = loader.getController();
         viewController.initializateData(selected.getCategory().getName(), costString,
-                selected.getDate(), selected.getName(), selected.getDescription(), 
-                selected.getImageScan(), selected);
+                cantidadString, selected.getDate(), selected.getName(), 
+              selected.getDescription(), selected.getImageScan(), selected);
         
         Stage stage = new Stage();
         stage.setTitle("Visualizar Gasto");

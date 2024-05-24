@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewGasto.ViewGasto_FXMLController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewGasto.ViewGasto_FXMLController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -15,6 +15,7 @@
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -31,22 +32,22 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Fecha" GridPane.rowIndex="2">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Fecha" GridPane.rowIndex="3">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Título" GridPane.rowIndex="3">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Título" GridPane.rowIndex="4">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Descripción" GridPane.rowIndex="4">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Descripción" GridPane.rowIndex="5">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Imágen" GridPane.rowIndex="5">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Imágen" GridPane.rowIndex="6">
          <font>
             <Font size="30.0" />
          </font>
@@ -61,21 +62,31 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="dateLabel" alignment="CENTER" prefHeight="17.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label fx:id="dateLabel" alignment="CENTER" prefHeight="17.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="titleLabel" alignment="CENTER" prefHeight="17.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label fx:id="titleLabel" alignment="CENTER" prefHeight="17.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="descriptionLabel" alignment="CENTER" prefHeight="17.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Label fx:id="descriptionLabel" alignment="CENTER" prefHeight="17.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <ImageView fx:id="image" fitHeight="66.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <ImageView fx:id="image" fitHeight="66.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Cantidad" GridPane.rowIndex="2">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="cantidadLabel" alignment="CENTER" prefHeight="17.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>
