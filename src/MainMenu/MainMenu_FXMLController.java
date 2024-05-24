@@ -133,9 +133,7 @@ public class MainMenu_FXMLController implements Initializable {
     public void updateCharges() throws IOException{
         try{
             List<Charge> charges = Acount.getInstance().getUserCharges();
-            for(Charge charge : charges){
-                cargos.add(charge);
-            }
+            cargos.setAll(charges);
             chargeTable.setItems(cargos);
         }
         catch(AcountDAOException e){
@@ -167,6 +165,14 @@ public class MainMenu_FXMLController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Añadir Gasto");
         stage.setScene(new Scene(root));
+        
+        stage.setOnHidden(e -> {
+            try {
+                updateCharges();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToAddGasto.getScene().getWindow());
@@ -223,11 +229,19 @@ public class MainMenu_FXMLController implements Initializable {
         EditGasto_FXMLController viewController = loader.getController();
         viewController.initializateData(selected.getCategory().getName(), costString,
                 selected.getDate(), selected.getName(), selected.getDescription(), 
-                selected.getImageScan());
+                selected.getImageScan(), selected);
         
         Stage stage = new Stage();
         stage.setTitle("Visualizar Gasto");
         stage.setScene(new Scene(root));
+        
+        stage.setOnHidden(e -> {
+            try {
+                updateCharges();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToCategory.getScene().getWindow());
