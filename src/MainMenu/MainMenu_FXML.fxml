@@ -228,7 +228,7 @@
                   </VBox>
                </children>
             </HBox>
-            <ImageView fitHeight="137.0" fitWidth="124.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="91.0" fitWidth="93.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/logo-gif.gif" />
                </image>

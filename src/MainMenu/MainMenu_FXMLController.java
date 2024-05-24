@@ -317,48 +317,48 @@ public class MainMenu_FXMLController implements Initializable {
     @FXML
     private void PrintingButton(ActionEvent event) throws IOException {
     try {
-        PDDocument document = new PDDocument();
+        PDDocument dpdf = new PDDocument();
         PDPage page = new PDPage();
-        document.addPage(page);
-        PDPageContentStream contentStream = new PDPageContentStream(document, page);
+        dpdf.addPage(page);
+        PDPageContentStream contentStream = new PDPageContentStream(dpdf, page);
 
         float margin = 50;
         float yStart = page.getMediaBox().getHeight() - margin;
-        float tableWidth = page.getMediaBox().getWidth() - (2 * margin);
-        float yPosition = yStart;
-        float bottomMargin = 70;
-        float cellMargin = 10;
-        float rowHeight = 20;
-        float tableBottomY = bottomMargin;
-        boolean drawContent = true;
+        float anchuraTable = page.getMediaBox().getWidth() - (2 * margin);
+        float y = yStart;
+        float marginBajo = 70;
+        float marginCelda = 10;
+        float alturaRow = 20;
+        float tableBajoY = marginBajo;
+        boolean draw = true;
         TableView.TableViewSelectionModel<Charge> selectionModel = chargeTable.getSelectionModel();
         ObservableList<TableColumn<Charge, ?>> columns = chargeTable.getColumns();
-        double[] columnsWidthPercentage = {0.2, 0.3, 0.3, 0.3};
+        double[] columnsWidthPercentage = {0.1, 0.2, 0.2, 0.3};
 
         
         contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
         for (int i = 0; i < columns.size(); i++) {
             TableColumn<Charge, ?> column = columns.get(i);
-            double columnWidth = tableWidth * columnsWidthPercentage[i];
+            double columnWidth = anchuraTable * columnsWidthPercentage[i];
             String columnHeader = column == categoryColumn ? "Categoría" : column.getText();
             contentStream.beginText();
-            contentStream.newLineAtOffset((float) (margin + (i * columnWidth)), yPosition);
+            contentStream.newLineAtOffset((float) (margin + (i * columnWidth)), y);
             contentStream.showText(columnHeader);
             contentStream.endText();
         }
-        yPosition -= rowHeight;
+        y -= alturaRow;
         
         for (Charge charge : cargos) {
-            if (drawContent) {
-                yPosition -= rowHeight;
+            if (draw) {
+                y -= alturaRow;
                 contentStream.setFont(PDType1Font.HELVETICA, 12);
                 for (int i = 0; i < columns.size(); i++) {
                     TableColumn<Charge, ?> column = columns.get(i);
-                    double columnWidth = tableWidth * columnsWidthPercentage[i];
+                    double columnWidth = anchuraTable * columnsWidthPercentage[i];
                     String cellValue = column == categoryColumn ? charge.getCategory().getName() : 
                                                                   column.getCellObservableValue(charge).getValue().toString();
                     contentStream.beginText();
-                    contentStream.newLineAtOffset((float) (margin + (i * columnWidth) + cellMargin), yPosition);
+                    contentStream.newLineAtOffset((float) (margin + (i * columnWidth) + marginCelda), y);
                     contentStream.showText(cellValue);
                     contentStream.endText();
                 }
@@ -371,9 +371,9 @@ public class MainMenu_FXMLController implements Initializable {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
         File file = fileChooser.showSaveDialog(null);
         if (file != null) {
-            document.save(file);
+            dpdf.save(file);
         }
-        document.close();
+        dpdf.close();
     } catch (IOException e) {
         e.printStackTrace();
     }
