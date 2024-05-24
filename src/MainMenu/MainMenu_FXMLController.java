@@ -21,14 +21,29 @@ import ViewGasto.ViewGasto_FXMLController;
 import EditGasto.EditGasto_FXMLController;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 public class MainMenu_FXMLController implements Initializable {
 
@@ -64,6 +79,21 @@ public class MainMenu_FXMLController implements Initializable {
     private Button NOBORRAR;
     
     private ObservableList<Charge> cargos = FXCollections.observableArrayList();
+    @FXML
+    private Button PrintButton;
+    @FXML
+    private MenuButton tableCategory;
+    @FXML
+    private Label labelTableCategory;
+    
+    private final StringProperty selectedCategory = new SimpleStringProperty();
+    
+    private FilteredList<Charge> filteredCharges;
+    
+    Category category = null;
+    
+    ObservableList<MenuItem> categories = FXCollections.observableArrayList();
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -80,8 +110,20 @@ public class MainMenu_FXMLController implements Initializable {
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Charge, LocalDate>("date"));
         
+        filteredCharges = new FilteredList<>(cargos);
+        
+        chargeTable.setItems(filteredCharges);
+        
         try{
             updateCharges();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        try{
+          addCategories();
+          tableCategory.getItems().addAll(categories);
         }
         catch(IOException e){
             e.printStackTrace();
@@ -225,6 +267,7 @@ public class MainMenu_FXMLController implements Initializable {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(NOBORRAR.getScene().getWindow());
         stage.getIcons().add(new Image("./assets/ww_black.png"));
+        stage.setResizable(false);
         stage.showAndWait();
         
         bienvenido.setText(Login_FXMLController.getNombrecuentaGastos());
@@ -237,15 +280,120 @@ public class MainMenu_FXMLController implements Initializable {
         logOut.setTitle("Cerrar Sesión");
         logOut.setHeaderText("¿Quiere cerrar sesión?");
         logOut.setContentText("Si lo hace, tendrá que volver a iniciar sesión.");
-        logOut.showAndWait();
-        Login_FXMLController.cuentaGastos.logOutUser();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
-        Parent root = loader.load();
-        Login_Main.scene = new Scene(root);
-        Login_Main.mainStage.setScene(Login_Main.scene);
-        Login_Main.mainStage.setTitle("Login Usuario");
-        Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
-        Login_Main.mainStage.setResizable(false);
-        Login_Main.mainStage.showAndWait();
+
+        ButtonType buttonAceptar = new ButtonType("Aceptar");
+        ButtonType buttonCancelar = new ButtonType("Cancelar");
+
+        logOut.getButtonTypes().setAll(buttonAceptar, buttonCancelar);
+
+        Optional<ButtonType> result = logOut.showAndWait();
+        if (result.isPresent() && result.get() == buttonAceptar) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
+            Parent root = loader.load();
+            Login_Main.scene = new Scene(root);
+            Login_Main.mainStage.setScene(Login_Main.scene);
+            Login_Main.mainStage.setTitle("Login Usuario");
+            Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
+            Login_Main.mainStage.setResizable(false);
+            Login_Main.mainStage.showAndWait();
+        } else {
+        }
+    }
+
+    @FXML
+    private void PrintingButton(ActionEvent event) throws IOException {
+    try {
+        PDDocument document = new PDDocument();
+        PDPage page = new PDPage();
+        document.addPage(page);
+        PDPageContentStream contentStream = new PDPageContentStream(document, page);
+
+        float margin = 50;
+        float yStart = page.getMediaBox().getHeight() - margin;
+        float tableWidth = page.getMediaBox().getWidth() - (2 * margin);
+        float yPosition = yStart;
+        float bottomMargin = 70;
+        float cellMargin = 10;
+        float rowHeight = 20;
+        float tableBottomY = bottomMargin;
+        boolean drawContent = true;
+        TableView.TableViewSelectionModel<Charge> selectionModel = chargeTable.getSelectionModel();
+        ObservableList<TableColumn<Charge, ?>> columns = chargeTable.getColumns();
+        double[] columnsWidthPercentage = {0.2, 0.3, 0.3, 0.3};
+
+        
+        contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+        for (int i = 0; i < columns.size(); i++) {
+            TableColumn<Charge, ?> column = columns.get(i);
+            double columnWidth = tableWidth * columnsWidthPercentage[i];
+            String columnHeader = column == categoryColumn ? "Categoría" : column.getText();
+            contentStream.beginText();
+            contentStream.newLineAtOffset((float) (margin + (i * columnWidth)), yPosition);
+            contentStream.showText(columnHeader);
+            contentStream.endText();
+        }
+        yPosition -= rowHeight;
+        
+        for (Charge charge : cargos) {
+            if (drawContent) {
+                yPosition -= rowHeight;
+                contentStream.setFont(PDType1Font.HELVETICA, 12);
+                for (int i = 0; i < columns.size(); i++) {
+                    TableColumn<Charge, ?> column = columns.get(i);
+                    double columnWidth = tableWidth * columnsWidthPercentage[i];
+                    String cellValue = column == categoryColumn ? charge.getCategory().getName() : 
+                                                                  column.getCellObservableValue(charge).getValue().toString();
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset((float) (margin + (i * columnWidth) + cellMargin), yPosition);
+                    contentStream.showText(cellValue);
+                    contentStream.endText();
+                }
+            }
+        }
+
+        contentStream.close();
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+        File file = fileChooser.showSaveDialog(null);
+        if (file != null) {
+            document.save(file);
+        }
+        document.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+ }
+    
+    private void addCategories() throws IOException {
+        try{
+        List<Category> categoryList = Acount.getInstance().getUserCategories();
+        if(categoryList == null || categoryList.isEmpty()) return;
+        for(Category category : categoryList){
+            MenuItem item = new MenuItem();
+            String categoryName = category.getName();
+            item.setText(categoryName);
+            item.setOnAction(event -> {
+                updateCategory(category);
+            });
+            categories.add(item);
+        }
+    } 
+    catch(AcountDAOException e){
+        e.printStackTrace();
+    }
+    }
+    
+    private void updateCategory(Category category) {
+        this.category = category;
+        selectedCategory.set(category.getName()); 
+        labelTableCategory.setText(category.getName());
+        
+        filteredCharges.setPredicate(charge -> {
+        if (category == null) {
+            return true; // Mostrar todos los cargos si no se selecciona ninguna categoría
+        }
+        return charge.getCategory().equals(category);
+    });
     }
 }

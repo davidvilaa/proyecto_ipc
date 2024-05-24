@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Configurar.Configurar_FXMLController">
+<BorderPane maxHeight="400.0" maxWidth="601.0" minHeight="400.0" minWidth="601.0" prefHeight="400.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Configurar.Configurar_FXMLController">
    <left>
       <GridPane prefHeight="400.0" prefWidth="601.0" BorderPane.alignment="CENTER">
         <columnConstraints>

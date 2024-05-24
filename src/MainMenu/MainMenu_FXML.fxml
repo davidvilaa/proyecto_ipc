@@ -23,7 +23,14 @@
    <center>
       <TableView fx:id="chargeTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="categoryColumn" prefWidth="120.0" text="Categoria" />
+          <TableColumn fx:id="categoryColumn" prefWidth="120.0">
+               <graphic>
+                  <MenuButton fx:id="tableCategory" mnemonicParsing="false">
+                     <graphic>
+                        <Label fx:id="labelTableCategory" text="Categoría" />
+                     </graphic>
+                  </MenuButton>
+               </graphic></TableColumn>
           <TableColumn fx:id="conceptColumn" prefWidth="122.4000244140625" text="Concepto" />
             <TableColumn fx:id="priceColumn" prefWidth="112.0" text="Precio" />
             <TableColumn fx:id="dateColumn" prefWidth="120.0" text="Fecha" />
@@ -122,7 +129,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="PrintButton" mnemonicParsing="false" onAction="#PrintingButton">
                            <graphic>
                               <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

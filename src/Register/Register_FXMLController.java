@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class Register_FXMLController implements Initializable {
     
@@ -32,8 +34,6 @@ public class Register_FXMLController implements Initializable {
     private Button selectArchive;
     @FXML
     public ImageView image;
-    @FXML
-    private Button register;
     
     @FXML
     private Label name_error;
@@ -52,6 +52,8 @@ public class Register_FXMLController implements Initializable {
     private Button atras;
     
     String[] accepted_mails = {"@gmail.com", "@yahoo.com", "@upv.es", "@hotmail.com"};
+    @FXML
+    private Button register_button;
 
     @FXML
     public void selectArchiveHandle(ActionEvent event){
@@ -105,6 +107,10 @@ public class Register_FXMLController implements Initializable {
     
     @FXML
     public void registerHandle(ActionEvent event) throws AcountDAOException, IOException{
+        register();
+    }
+    
+    public void register()throws AcountDAOException, IOException{
         register_error.setText("");
         name_error.setText("");
         surname_error.setText("");
@@ -155,6 +161,12 @@ public class Register_FXMLController implements Initializable {
         window.setScene(scene);
         window.setTitle("Login");
         window.show();
+    }
+    
+    private void keyEnterRegister(KeyEvent event) throws IOException, AcountDAOException {
+        if(event.getCode() == KeyCode.ENTER){
+            register();
+        }
     }
     
     @Override

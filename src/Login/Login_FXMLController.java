@@ -37,6 +37,8 @@ public class Login_FXMLController implements Initializable{
     public static Image getImagencuentaGastos() {
         return cuentaGastos.getLoggedUser().getImage();
     }
+    @FXML
+    private Label login_error;
     
     @FXML
     private void goToRegister(ActionEvent event) throws IOException{
@@ -75,7 +77,7 @@ public class Login_FXMLController implements Initializable{
                     
                 }
                 else{
-                    login_button.setText("Usuario o Contraseña incorrectos");
+                    login_error.setText("Usuario o Contraseña incorrectos");
                 }
             }
         }

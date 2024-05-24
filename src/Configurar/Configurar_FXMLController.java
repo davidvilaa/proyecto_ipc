@@ -122,7 +122,7 @@ public class Configurar_FXMLController implements Initializable {
      FileChooser fc = new FileChooser();
         fc.setTitle("Selecciona una Imágen");
         
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("*.png","*.jpg","*.jpeg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(".png",".jpg","*.jpeg"));
         
         File file = fc.showOpenDialog(new Stage());
         
@@ -150,12 +150,8 @@ public class Configurar_FXMLController implements Initializable {
 
     @FXML
     private void guardar(MouseEvent event) throws IOException {
-                if(0 == antiguaContraseña.getText().compareTo(cuentaConfigurar.getLoggedUser().getPassword())&& Check.isSelected()){
-                    System.out.println("contraseñaCorrecta");
-
-                    cuentaConfigurar.getLoggedUser().setPassword(nuevaContraseña.getText());
-                }
-                posibleGuardar = true;
+        
+        posibleGuardar = true;
                 if(!nameIsCorrect()){
                     name_error.setText("El Nombre solo puede contener Letras");
                     posibleGuardar = false;
@@ -165,13 +161,16 @@ public class Configurar_FXMLController implements Initializable {
                 name_error.setVisible(false);
                 }
                 if(!surnameIsCorrect()){
+                    
                     posibleGuardar = false;
                     surname_error.setVisible(true);
                 }
                 if(surnameIsCorrect()){
-                     surname_error.setVisible(false);
+                surname_error.setVisible(false);
                 }
+                
                 if(!passwordIsCorrect() && Check.isSelected()){
+                    
                     posibleGuardar = false;
                     password_error.setVisible(true);    
                 }
@@ -179,6 +178,7 @@ public class Configurar_FXMLController implements Initializable {
                 password_error.setVisible(false);
                 }
                 if(!mailIsCorrect()){
+                    
                     posibleGuardar = false;
                     mail_error.setVisible(true);
                 }
@@ -188,19 +188,22 @@ public class Configurar_FXMLController implements Initializable {
                 if(0 != antiguaContraseña.getText().compareTo(cuentaConfigurar.getLoggedUser().getPassword()) && Check.isSelected()){
                     oldpassword_error.setText("La contraseña no coincide");
                     oldpassword_error.setVisible(true);
+                    posibleGuardar = false;
                 }
-                if(0 == antiguaContraseña.getText().compareTo(cuentaConfigurar.getLoggedUser().getPassword())){
+                else if(0 == antiguaContraseña.getText().compareTo(cuentaConfigurar.getLoggedUser().getPassword()) && Check.isSelected()){ 
+                    oldpassword_error.setText("");
                     oldpassword_error.setVisible(false);
                 }
                 if(posibleGuardar == true){
-                    cuentaConfigurar.getLoggedUser().setName((configurarNombre.getText()));
-                    cuentaConfigurar.getLoggedUser().setSurname((configurarApellido.getText()));
-                    cuentaConfigurar.getLoggedUser().setEmail((configurarCorreo.getText()));
-                    cuentaConfigurar.getLoggedUser().setImage(fotoQueSeConfigura.getImage());
-                    Stage stage = (Stage) guardarNuevaConfiguracion.getScene().getWindow();
-                    stage.close();
-                }
-    }   
+                cuentaConfigurar.getLoggedUser().setName((configurarNombre.getText()));
+                cuentaConfigurar.getLoggedUser().setSurname((configurarApellido.getText()));
+                cuentaConfigurar.getLoggedUser().setEmail((configurarCorreo.getText()));
+                cuentaConfigurar.getLoggedUser().setImage(fotoQueSeConfigura.getImage());
+                cuentaConfigurar.getLoggedUser().setPassword(nuevaContraseña.getText());
+                Stage stage = (Stage) guardarNuevaConfiguracion.getScene().getWindow();
+                stage.close();
+            }
+}   
     
     public void goToMainMenu() throws IOException{
     
@@ -229,6 +232,3 @@ public class Configurar_FXMLController implements Initializable {
     }
 }
 }
-    
-
-

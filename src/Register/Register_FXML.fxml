@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Register.Register_FXMLController">
+<GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Register.Register_FXMLController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -56,7 +56,7 @@
          </font>
       </Label>
       <Label fx:id="register_error" alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="250.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <Button fx:id="register" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Button fx:id="register_button" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
       <TextField fx:id="name" GridPane.columnIndex="2" />
       <TextField fx:id="nickname" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <TextField fx:id="mail" GridPane.columnIndex="2" GridPane.rowIndex="4" />
@@ -82,12 +82,12 @@
             <Insets top="40.0" />
          </GridPane.margin>
       </Label>
-      <Label fx:id="password_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3">
+      <Label fx:id="password_error" alignment="CENTER" prefHeight="26.0" prefWidth="254.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets top="40.0" />
          </GridPane.margin>
       </Label>
-      <Label fx:id="mail_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4">
+      <Label fx:id="mail_error" alignment="CENTER" prefHeight="26.0" prefWidth="254.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets top="40.0" />
          </GridPane.margin>

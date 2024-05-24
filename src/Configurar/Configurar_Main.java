@@ -30,6 +30,7 @@ public class Configurar_Main extends Application {
         mainStage.setTitle("Configuración");
         mainStage.getIcons().add(new Image("./assets/ww_black.png"));
         mainStage.setResizable(false);
+        mainStage.setFullScreen(false);
         mainStage.show();
     }
     

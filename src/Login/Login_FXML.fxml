@@ -44,6 +44,11 @@
             <Font size="15.0" />
          </font>
       </Hyperlink>
+      <Label fx:id="login_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets top="73.0" />
+         </GridPane.margin>
+      </Label>
    </children>
    <padding>
       <Insets right="30.0" />
