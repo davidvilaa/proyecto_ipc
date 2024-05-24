@@ -1,11 +1,14 @@
 package EditGasto;
 
+import java.io.File;
 import javafx.event.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -20,6 +23,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.*;
 
 public class EditGasto_FXMLController implements Initializable{
@@ -43,18 +49,35 @@ public class EditGasto_FXMLController implements Initializable{
     
     private final StringProperty selectedCategory = new SimpleStringProperty();
     Category category = null;
+    Charge selectedCharge = null;
     ObservableList<MenuItem> categories = FXCollections.observableArrayList();
 
-    public void initializateData(String category, String cost, LocalDate date, String name, String description, Image imageScan){
+    public void initializateData(String category, String cost, LocalDate date, String name, String description, Image imageScan, Charge selected){
         costLabel.setText(cost);
         titleLabel.setText(name);
         descriptionLabel.setText(description);
         imageImage.setImage(imageScan);
         dateLabel.setValue(date);
+        selectedCharge = selected;
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        
+        BooleanBinding areFieldsEmpty = Bindings.createBooleanBinding(() -> 
+                costLabel.getText().isEmpty() || 
+                titleLabel.getText().isEmpty() || 
+                dateLabel.getValue() == null || 
+                descriptionLabel.getText().isEmpty() || 
+                selectedCategory.get() == null || selectedCategory.get().isEmpty(),
+                costLabel.textProperty(),
+                titleLabel.textProperty(),
+                dateLabel.valueProperty(),
+                descriptionLabel.textProperty(),
+                selectedCategory
+        );
+        editar.disableProperty().bind(areFieldsEmpty);
+        
         try{
             addCategories();
             categoryMenu.getItems().addAll(categories);
@@ -91,6 +114,29 @@ public class EditGasto_FXMLController implements Initializable{
     
     @FXML
     private void editarHandle(ActionEvent event){
+        selectedCharge.setCategory(category);
+        selectedCharge.setCost(Double.parseDouble(costLabel.getText()));
+        selectedCharge.setName(titleLabel.getText());
+        selectedCharge.setDescription(descriptionLabel.getText());
+        selectedCharge.setDate(dateLabel.getValue());
+        selectedCharge.setImageScan(imageImage.getImage());
         
+        Stage stage = (Stage) editar.getScene().getWindow();
+        stage.close();
+    }
+    
+    @FXML
+    public void selectArchiveHandle(MouseEvent event){
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Selecciona una Imágen");
+        
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("*.png","*.jpg","*.jpeg"));
+        
+        File file = fc.showOpenDialog(new Stage());
+        
+        if(file != null){
+            Image file_image = new Image(file.toURI().toString());
+            imageImage.setImage(file_image);
+        }
     }
 }

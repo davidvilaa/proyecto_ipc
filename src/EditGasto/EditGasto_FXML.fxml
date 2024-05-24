@@ -60,7 +60,7 @@
       <TextField fx:id="costLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="titleLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <TextField fx:id="descriptionLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <ImageView fx:id="imageImage" fitHeight="62.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      <ImageView fx:id="imageImage" fitHeight="62.0" fitWidth="301.0" onMouseClicked="#selectArchiveHandle" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
       <DatePicker fx:id="dateLabel" prefHeight="25.0" prefWidth="323.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <MenuButton fx:id="categoryMenu" mnemonicParsing="false" prefHeight="25.0" prefWidth="307.0" GridPane.columnIndex="1">
          <graphic>
