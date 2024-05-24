@@ -36,6 +36,8 @@ public class AddGasto_FXMLController implements Initializable {
     @FXML
     private TextField CostText;
     @FXML
+    private TextField cantidadText;
+    @FXML
     private TextField TitleText;
     @FXML
     private DatePicker DateText;
@@ -74,12 +76,14 @@ public class AddGasto_FXMLController implements Initializable {
         
         
         BooleanBinding areFieldsEmpty = Bindings.createBooleanBinding(() -> 
-                CostText.getText().isEmpty() || 
+                CostText.getText().isEmpty() ||
+                cantidadText.getText().isEmpty() ||
                 TitleText.getText().isEmpty() || 
                 DateText.getValue() == null || 
                 DescriptionText.getText().isEmpty() || 
                 selectedCategory.get() == null || selectedCategory.get().isEmpty(),
                 CostText.textProperty(),
+                cantidadText.textProperty(),
                 TitleText.textProperty(),
                 DateText.valueProperty(),
                 DescriptionText.textProperty(),
@@ -119,9 +123,10 @@ public class AddGasto_FXMLController implements Initializable {
     private void AddingCost(ActionEvent event) throws IOException{
         LocalDate date = DateText.getValue();
         double cost = Double.parseDouble(CostText.getText());
+        int c = Integer.parseInt(cantidadText.getText());
 
         try{
-            Acount.getInstance().registerCharge(TitleText.getText(), DescriptionText.getText(), cost, 0, imageCost.getImage(), date, category);
+            Acount.getInstance().registerCharge(TitleText.getText(), DescriptionText.getText(), cost, c, imageCost.getImage(), date, category);
             goToMainMenu();
         }
         catch(AcountDAOException a){

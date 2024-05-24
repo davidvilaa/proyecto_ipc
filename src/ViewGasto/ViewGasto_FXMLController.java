@@ -16,6 +16,8 @@ public class ViewGasto_FXMLController implements Initializable {
     @FXML
     private Label costLabel;
     @FXML
+    private Label cantidadLabel;
+    @FXML
     private Label dateLabel;
     @FXML
     private Label titleLabel;
@@ -28,9 +30,10 @@ public class ViewGasto_FXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
     }
 
-    public void initializateData(String category, String cost, String date, String title, String description, Image image) {
+    public void initializateData(String category, String cost, String cantidad, String date, String title, String description, Image image) {
         categoryLabel.setText(category);
         costLabel.setText(cost);
+        cantidadLabel.setText(cantidad);
         dateLabel.setText(date);
         titleLabel.setText(title);
         descriptionLabel.setText(description);

@@ -35,6 +35,8 @@ public class EditGasto_FXMLController implements Initializable{
     @FXML
     private TextField costLabel;
     @FXML
+    private TextField cantidadText;
+    @FXML
     private TextField titleLabel;
     @FXML
     private TextField descriptionLabel;
@@ -52,8 +54,9 @@ public class EditGasto_FXMLController implements Initializable{
     Charge selectedCharge = null;
     ObservableList<MenuItem> categories = FXCollections.observableArrayList();
 
-    public void initializateData(String category, String cost, LocalDate date, String name, String description, Image imageScan, Charge selected){
+    public void initializateData(String category, String cost, String cantidad, LocalDate date, String name, String description, Image imageScan, Charge selected){
         costLabel.setText(cost);
+        cantidadText.setText(cantidad);
         titleLabel.setText(name);
         descriptionLabel.setText(description);
         imageImage.setImage(imageScan);
@@ -65,12 +68,14 @@ public class EditGasto_FXMLController implements Initializable{
     public void initialize(URL url, ResourceBundle rb){
         
         BooleanBinding areFieldsEmpty = Bindings.createBooleanBinding(() -> 
-                costLabel.getText().isEmpty() || 
+                costLabel.getText().isEmpty() ||
+                cantidadText.getText().isEmpty() ||
                 titleLabel.getText().isEmpty() || 
                 dateLabel.getValue() == null || 
                 descriptionLabel.getText().isEmpty() || 
                 selectedCategory.get() == null || selectedCategory.get().isEmpty(),
                 costLabel.textProperty(),
+                   cantidadText.textProperty(),
                 titleLabel.textProperty(),
                 dateLabel.valueProperty(),
                 descriptionLabel.textProperty(),
@@ -115,6 +120,7 @@ public class EditGasto_FXMLController implements Initializable{
     @FXML
     private void editarHandle(ActionEvent event){
         selectedCharge.setCategory(category);
+        selectedCharge.setUnits(Integer.parseInt(cantidadText.getText()));
         selectedCharge.setCost(Double.parseDouble(costLabel.getText()));
         selectedCharge.setName(titleLabel.getText());
         selectedCharge.setDescription(descriptionLabel.getText());
