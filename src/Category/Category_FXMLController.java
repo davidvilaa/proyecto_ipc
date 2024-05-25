@@ -14,14 +14,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import model.*;
 import java.io.*;
 import java.util.List;
-import javafx.event.EventType;
 
 public class Category_FXMLController implements Initializable {
 

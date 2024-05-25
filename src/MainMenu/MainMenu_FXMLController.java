@@ -192,6 +192,14 @@ public class MainMenu_FXMLController implements Initializable {
         stage.setTitle("Categorías");
         stage.setScene(new Scene(root));
         
+        stage.setOnHidden(e -> {
+            try {
+                updateCharges();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+        
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToCategory.getScene().getWindow());
         
