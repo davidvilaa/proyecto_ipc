@@ -1,5 +1,6 @@
 package Estadisticas;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -19,7 +20,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -29,11 +32,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.swing.table.TableColumn;
 import model.Acount;
 import model.AcountDAOException;
 import model.Category;
 import model.Charge;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import MainMenu.MainMenu_FXMLController;
 
 public class Estadisticas_FXMLController implements Initializable {
     public int ventanaActual = 0;
@@ -59,13 +70,16 @@ public class Estadisticas_FXMLController implements Initializable {
     private MenuButton menuMes;
     @FXML
     private LineChart<String, Number> graficaDeMes;
+    @FXML
+    private Button PrintButton;
+    @FXML
+    private Button homeButton;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initializeMenuItems();
         initializeMenuMesItems();
         try {
-            
-            
             actualizarPieChart();
         } catch (IOException ex) {
             Logger.getLogger(Estadisticas_FXMLController.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,9 +92,8 @@ public class Estadisticas_FXMLController implements Initializable {
         actualizarTabla();
         actualizarTablaMes();
         
+        PrintButton.setDisable(true);
     }
-    
-    
     
     private void actualizarPieChart() throws IOException {
         List<PieChart.Data> l = new ArrayList<>();
@@ -186,6 +199,7 @@ public class Estadisticas_FXMLController implements Initializable {
             e.printStackTrace();
         }
     }
+    
     private void initializeMenuMesItems(){
     for (Month mes : Month.values()) {
         MenuItem menuItem = new MenuItem(mes.toString());
@@ -198,58 +212,58 @@ public class Estadisticas_FXMLController implements Initializable {
     
     // Selecciona el mes actual por defecto
     mesSeleccionado = LocalDate.now().getMonth();
-}
+    }
 
-public void seleccionarMes(Month mes) {
-    mesSeleccionado = mes;
-    
-    actualizarTablaMes(); // Actualiza la tabla cuando se selecciona un nuevo mes
-}
-    public void actualizarTablaMes() {
-    menuMes.setText("Mes: " + mesSeleccionado );
-    graficaDeMes.getData().clear();
-    gastado2 = 0;
+    public void seleccionarMes(Month mes) {
+        mesSeleccionado = mes;
 
-    Acount user = null;
-    try {
-        user = Acount.getInstance();
-        
-        if (mesSeleccionado == null || selectedYear == null) {
-            // Manejar el caso cuando no se selecciona ningún mes o año
-            graficaDeMes.getData().forEach(series -> series.getData().clear());
-            return;
-        }
+        actualizarTablaMes(); // Actualiza la tabla cuando se selecciona un nuevo mes
+    }
+        public void actualizarTablaMes() {
+        menuMes.setText("Mes: " + mesSeleccionado );
+        graficaDeMes.getData().clear();
+        gastado2 = 0;
 
-        // Obtén el número de días en el mes seleccionado
-        YearMonth yearMonth = YearMonth.of(selectedYear.intValue(), mesSeleccionado);
-        int diasEnMes = yearMonth.lengthOfMonth();
+        Acount user = null;
+        try {
+            user = Acount.getInstance();
 
-        for (Category categoria : user.getUserCategories()) {
-            XYChart.Series<String, Number> series = new XYChart.Series<>();
-            
-            for (int dia = 1; dia <= diasEnMes; dia++) {
-                Double gastoDiaActual = 0.0d;
-                LocalDate fechaActual = LocalDate.of(this.selectedYear, mesSeleccionado, dia);
-
-                for (Charge cargo : user.getUserCharges()) {
-                    if (cargo.getDate().equals(fechaActual) && cargo.getCategory().getName().equals(categoria.getName())) {
-                        gastoDiaActual += cargo.getCost();
-                    }
-                }
-
-                series.getData().add(new XYChart.Data<>(String.valueOf(dia), gastoDiaActual));
-                gastado2 += gastoDiaActual;
+            if (mesSeleccionado == null || selectedYear == null) {
+                // Manejar el caso cuando no se selecciona ningún mes o año
+                graficaDeMes.getData().forEach(series -> series.getData().clear());
+                return;
             }
 
-            series.setName(categoria.getName());
-            graficaDeMes.getData().add(series);
-        }
+            // Obtén el número de días en el mes seleccionado
+            YearMonth yearMonth = YearMonth.of(selectedYear.intValue(), mesSeleccionado);
+            int diasEnMes = yearMonth.lengthOfMonth();
 
-        Gastos.setText("Gastos del mes: " + gastado2 + "€");
-    } catch (IOException | AcountDAOException e) {
-        e.printStackTrace();
+            for (Category categoria : user.getUserCategories()) {
+                XYChart.Series<String, Number> series = new XYChart.Series<>();
+
+                for (int dia = 1; dia <= diasEnMes; dia++) {
+                    Double gastoDiaActual = 0.0d;
+                    LocalDate fechaActual = LocalDate.of(this.selectedYear, mesSeleccionado, dia);
+
+                    for (Charge cargo : user.getUserCharges()) {
+                        if (cargo.getDate().equals(fechaActual) && cargo.getCategory().getName().equals(categoria.getName())) {
+                            gastoDiaActual += cargo.getCost();
+                        }
+                    }
+
+                    series.getData().add(new XYChart.Data<>(String.valueOf(dia), gastoDiaActual));
+                    gastado2 += gastoDiaActual;
+                }
+
+                series.setName(categoria.getName());
+                graficaDeMes.getData().add(series);
+            }
+
+            Gastos.setText("Gastos del mes: " + gastado2 + "€");
+        } catch (IOException | AcountDAOException e) {
+            e.printStackTrace();
+        }
     }
-}
 
     @FXML
     private void pasarOpcion(ActionEvent event) {
@@ -303,4 +317,25 @@ public void seleccionarMes(Month mes) {
         }
        
     }
+
+    @FXML
+    private void goToHome(ActionEvent event) throws IOException{
+        Scene currentScene = DESELECCIONAR.getScene();
+        double currentHeight = currentScene.getHeight();
+        double currentWidth = currentScene.getWidth();
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/MainMenu/MainMenu_FXML.fxml"));
+        Scene scene = new Scene(root);
+        Stage window = (Stage) DESELECCIONAR.getScene().getWindow();
+        window.setScene(scene);
+        //window.setHeight(currentHeight);
+        //window.setWidth(currentWidth);
+        window.centerOnScreen();
+        window.setTitle("Menú Principal");
+        window.show();
     }
+
+    @FXML
+    private void goToPrint(ActionEvent event) throws IOException {
+    }
+}

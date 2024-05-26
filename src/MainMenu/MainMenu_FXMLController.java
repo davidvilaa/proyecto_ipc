@@ -425,26 +425,23 @@ public class MainMenu_FXMLController implements Initializable {
             return true; // Mostrar todos los cargos si no se selecciona ninguna categoría
         }
         return charge.getCategory().equals(category);
-    });
-
-      
-
+        });
     }
     
-
     @FXML
     private void Estadisticas(ActionEvent event) throws IOException {
-     FXMLLoader loader = new FXMLLoader(getClass().getResource("/Estadisticas/Estadisticas_FXML.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = new Stage();
-        stage.setTitle("Estadisticas");
-        stage.setScene(new Scene(root));
-
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(statsButton.getScene().getWindow());
-        stage.getIcons().add(new Image("./assets/ww_black.png"));
-        stage.setResizable(false);
-        stage.showAndWait();  
+        Scene currentScene = NOBORRAR.getScene();
+        double currentHeight = currentScene.getHeight();
+        double currentWidth = currentScene.getWidth();
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/Estadisticas/Estadisticas_FXML.fxml"));
+        Scene scene = new Scene(root);
+        Stage window = (Stage) NOBORRAR.getScene().getWindow();
+        window.setScene(scene);
+        //window.setHeight(currentHeight);
+        //window.setWidth(currentWidth);
+        window.centerOnScreen();
+        window.setTitle("Estadisticas");
+        window.show();
     }
 }

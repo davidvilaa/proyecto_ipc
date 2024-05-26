@@ -12,11 +12,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Register.Register_FXMLController">
+<GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Register.Register_FXMLController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="180.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="326.0" />
   </columnConstraints>
   <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -28,83 +28,110 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <PasswordField fx:id="password" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="799.0" stroke="TRANSPARENT" strokeType="INSIDE" width="267.0" GridPane.rowIndex="2" />
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Nombre:" GridPane.columnIndex="1">
+      <PasswordField fx:id="password" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="799.0" stroke="TRANSPARENT" strokeType="INSIDE" width="197.0" GridPane.rowIndex="2" />
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Nombre:" GridPane.columnIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Usuario:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Usuario:" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="289.0" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="289.0" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="359.0" text="Correo Electrónico:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="359.0" text="Correo Electrónico:" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Imágen de Perfil:" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Imágen de Perfil:" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <Label fx:id="register_error" alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="250.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <Button fx:id="register_button" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <TextField fx:id="name" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" />
-      <TextField fx:id="nickname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <TextField fx:id="mail" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button fx:id="register_button" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <TextField fx:id="name" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.valignment="TOP" />
+      <TextField fx:id="nickname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <TextField fx:id="mail" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP" />
       <ImageView fx:id="image" fitHeight="90.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Button fx:id="selectArchive" mnemonicParsing="false" onAction="#selectArchiveHandle" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" prefHeight="0.0" prefWidth="250.0" text="Seleccionar Archivo" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="252.0" text="(opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <Button fx:id="selectArchive" mnemonicParsing="false" onAction="#selectArchiveHandle" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" prefHeight="0.0" prefWidth="250.0" text="Seleccionar Archivo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="252.0" text="(opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets top="40.0" />
+            <Insets top="25.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="atras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#atrasHandle" prefHeight="39.0" prefWidth="157.0" text="Atrás" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <Button fx:id="atras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#atrasHandle" prefHeight="39.0" prefWidth="157.0" text="Atrás" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Button>
-      <Label fx:id="name_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2">
+      <Label fx:id="name_error" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="51.0" prefWidth="326.0" styleClass="label-error" text="El nombre solo puede contener letras." GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets top="40.0" />
+            <Insets top="5.0" />
          </GridPane.margin>
+         <padding>
+            <Insets top="2.0" />
+         </padding>
+         <font>
+            <Font size="11.0" />
+         </font>
       </Label>
-      <Label fx:id="nickname_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets top="40.0" />
-         </GridPane.margin>
-      </Label>
-      <Label fx:id="password_error" alignment="CENTER" prefHeight="26.0" prefWidth="254.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
-         <GridPane.margin>
-            <Insets top="40.0" />
-         </GridPane.margin>
-      </Label>
-      <Label fx:id="mail_error" alignment="CENTER" prefHeight="26.0" prefWidth="254.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
-         <GridPane.margin>
-            <Insets top="40.0" />
-         </GridPane.margin>
-      </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Apellido:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Apellido:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="surname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Label fx:id="surname_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <TextField fx:id="surname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <Label fx:id="surname_error" alignment="TOP_CENTER" prefHeight="49.0" prefWidth="326.0" styleClass="label-error" text="El apellido solo puede contener letras." GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets top="40.0" />
+            <Insets />
          </GridPane.margin>
+         <padding>
+            <Insets top="2.0" />
+         </padding>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="nickname_error" alignment="TOP_CENTER" prefHeight="47.0" prefWidth="326.0" styleClass="label-error" text="El usuario solo puede conter letras minúsculas.&#10;" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="password_error" alignment="TOP_CENTER" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="326.0" styleClass="label-error" text="La contraseña solo puede contener un mínimo de &#10;6 Letras o Números" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets top="2.0" />
+         </padding>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="mail_error" alignment="TOP_CENTER" prefHeight="49.0" prefWidth="326.0" styleClass="label-error" text="El mail debe contener un dominio permitido&#10; o texto antes de @&#10;" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets top="2.0" />
+         </padding>
+         <font>
+            <Font size="11.0" />
+         </font>
       </Label>
    </children>
    <padding>
-      <Insets right="20.0" />
+      <Insets right="20.0" top="20.0" />
    </padding>
 </GridPane>
