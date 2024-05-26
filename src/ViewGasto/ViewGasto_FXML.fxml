@@ -22,32 +22,32 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Categoría">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Categoría">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Coste" GridPane.rowIndex="1">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Coste" GridPane.rowIndex="1">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Fecha" GridPane.rowIndex="3">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Fecha" GridPane.rowIndex="3">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Título" GridPane.rowIndex="4">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Título" GridPane.rowIndex="4">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Descripción" GridPane.rowIndex="5">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Descripción" GridPane.rowIndex="5">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Imágen" GridPane.rowIndex="6">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Imágen" GridPane.rowIndex="6">
          <font>
             <Font size="30.0" />
          </font>
@@ -77,8 +77,8 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <ImageView fx:id="image" fitHeight="66.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Cantidad" GridPane.rowIndex="2">
+      <ImageView fx:id="image" fitHeight="66.0" fitWidth="305.0" onMouseClicked="#abrirFotoGrande" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Cantidad" GridPane.rowIndex="2">
          <font>
             <Font size="30.0" />
          </font>

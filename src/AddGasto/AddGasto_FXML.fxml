@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -61,8 +60,9 @@
    <center>
       <GridPane prefHeight="319.0" prefWidth="535.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="204.19998779296876" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.79998779296875" minWidth="10.0" prefWidth="237.0000122070313" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="90.39996337890625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="161.99999999999997" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.79998779296875" minWidth="10.0" prefWidth="260.4" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.79998779296875" minWidth="10.0" prefWidth="90.39996337890625" />
         </columnConstraints>
         <rowConstraints>
@@ -75,7 +75,7 @@
             <RowConstraints maxHeight="76.60002441406249" minHeight="10.0" prefHeight="67.80003662109374" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label styleClass="label-text" text="Categoría:" GridPane.halignment="RIGHT">
+            <Label styleClass="label-text" text="Categoría:" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -83,7 +83,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label styleClass="label-text" text="Coste:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Label styleClass="label-text" text="Coste:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <padding>
                   <Insets right="5.0" />
                </padding>
@@ -94,7 +94,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label styleClass="label-text" text="Fecha:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Label styleClass="label-text" text="Fecha:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -102,7 +102,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label styleClass="label-text" text="Título:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+            <Label styleClass="label-text" text="Título:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                <padding>
                   <Insets right="5.0" />
                </padding>
@@ -113,7 +113,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label styleClass="label-text" text="Descripción:" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+            <Label styleClass="label-text" text="Descripción:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <padding>
                   <Insets right="5.0" />
                </padding>
@@ -124,44 +124,35 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <MenuButton fx:id="CategoryText" mnemonicParsing="false" prefHeight="28.0" prefWidth="199.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
+            <MenuButton fx:id="CategoryText" mnemonicParsing="false" prefHeight="28.0" prefWidth="199.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets left="15.0" right="10.0" />
                </GridPane.margin>
                <graphic>
                   <Label fx:id="LabelCategory" />
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </MenuButton>
-            <TextField fx:id="CostText" prefHeight="25.0" prefWidth="253.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="CostText" prefHeight="25.0" prefWidth="253.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="TitleText" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="TitleText" prefWidth="221.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </TextField>
-            <DatePicker fx:id="DateText" prefWidth="179.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+            <DatePicker fx:id="DateText" prefWidth="179.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets left="15.0" right="10.0" />
-               </GridPane.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></DatePicker>
-            <TextArea fx:id="DescriptionText" prefHeight="75.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button fx:id="ButtonAddCost" minHeight="20.0" mnemonicParsing="false" onAction="#AddingCost" prefHeight="36.0" prefWidth="64.0" styleClass="buttons3" text="Añadir" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               </GridPane.margin></DatePicker>
+            <TextArea fx:id="DescriptionText" prefHeight="75.0" prefWidth="245.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="ButtonAddCost" minHeight="20.0" mnemonicParsing="false" onAction="#AddingCost" prefHeight="36.0" prefWidth="64.0" styleClass="buttons3" text="Añadir" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="10.0" top="10.0" />
                </GridPane.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
-            <Label styleClass="label-text" text="Imagen:" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+            <Label styleClass="label-text" text="Imagen:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                <padding>
                   <Insets right="20.0" />
                </padding>
@@ -169,12 +160,9 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ImageView fx:id="imageCost" fitHeight="60.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="selectImage" mnemonicParsing="false" onAction="#selectArchiveHandle" styleClass="buttons" text="Seleccionar archivo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Label prefHeight="27.0" prefWidth="134.0" styleClass="label-text" text="         Cantidad:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <ImageView fx:id="imageCost" fitHeight="60.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="selectImage" mnemonicParsing="false" onAction="#selectArchiveHandle" styleClass="buttons" text="Seleccionar archivo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label prefHeight="27.0" prefWidth="134.0" styleClass="label-text" text="         Cantidad:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets right="5.0" />
                </padding>
@@ -185,7 +173,7 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="cantidadText" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="cantidadText" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>

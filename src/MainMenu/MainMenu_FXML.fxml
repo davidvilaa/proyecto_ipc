@@ -54,75 +54,60 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/más_white.png" />
+                        <Image url="@../assets/más.png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
             <Button fx:id="goToCategory" mnemonicParsing="false" onAction="#goToCategoryHandle" prefHeight="20.0" prefWidth="20.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/categoría_white.png" />
+                        <Image url="@../assets/categoría.png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
                   <Insets top="7.0" />
                </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
             <Button fx:id="goToVisualizar" mnemonicParsing="false" onAction="#goToVisualizarHandle" prefHeight="20.0" prefWidth="36.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/view_white.png" />
+                        <Image url="@../assets/view.png" />
                      </image></ImageView>
                </graphic>
                <VBox.margin>
                   <Insets top="40.0" />
                </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
             <Button fx:id="goToModificar" mnemonicParsing="false" onAction="#goToModificarHandle" prefHeight="20.0" prefWidth="20.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/editar_white.png" />
+                        <Image url="@../assets/editar.png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
                   <Insets top="7.0" />
                </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
             <Button fx:id="goToBorrar" mnemonicParsing="false" onAction="#goToBorrarHandle" prefHeight="20.0" prefWidth="20.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/papelera_white.png" />
+                        <Image url="@../assets/papelera.png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
                   <Insets top="7.0" />
                </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
          </children>
       </VBox>
@@ -139,37 +124,28 @@
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/casa_white.png" />
+                              <Image url="@../assets/casa.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Button>
                   <Button fx:id="PrintButton" mnemonicParsing="false" onAction="#PrintingButton" styleClass="buttons2">
                      <graphic>
                         <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/imprimir_white.png" />
+                              <Image url="@../assets/imprimir.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Button>
                   <Button fx:id="statsButton" mnemonicParsing="false" onAction="#Estadisticas" styleClass="buttons2">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/grafico_white.png" />
+                              <Image url="@../assets/grafico.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Button>
               </items>
                <HBox.margin>
@@ -240,9 +216,6 @@
                                  <GridPane.margin>
                                     <Insets top="9.0" />
                                  </GridPane.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
                               </MenuButton>
                            </children>
                         </GridPane>

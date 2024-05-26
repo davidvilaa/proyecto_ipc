@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -53,17 +52,11 @@
                   <Insets left="215.0" />
                </VBox.margin>
                <children>
-                  <MenuButton fx:id="menuTiempo" mnemonicParsing="false" style="-fx-background-color: #0F4C75;" text="AÑO" textFill="WHITE">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></MenuButton>
-                  <MenuButton fx:id="menuMes" mnemonicParsing="false" style="-fx-background-color: #0F4C75;" text="MES" textFill="WHITE" visible="false">
+                  <MenuButton fx:id="menuTiempo" mnemonicParsing="false" styleClass="buttons" text="AÑO" textFill="WHITE" />
+                  <MenuButton fx:id="menuMes" mnemonicParsing="false" styleClass="buttons" text="MES" textFill="WHITE" visible="false">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </MenuButton>
                </children>
             </HBox>
@@ -102,9 +95,6 @@
          <BorderPane.margin>
             <Insets right="5.0" />
          </BorderPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </Button>
    </right>
    <left>
@@ -112,9 +102,6 @@
          <BorderPane.margin>
             <Insets left="5.0" />
          </BorderPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </Button>
    </left>
    <bottom>
@@ -126,37 +113,28 @@
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/casa_white.png" />
+                              <Image url="@../assets/casa.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Button>
                   <Button fx:id="PrintButton" mnemonicParsing="false" onAction="#goToPrint" styleClass="buttons2">
                      <graphic>
                         <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/imprimir_white.png" />
+                              <Image url="@../assets/imprimir.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Button>
                   <Button mnemonicParsing="false" styleClass="buttons2">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/grafico_white.png" />
+                              <Image url="@../assets/grafico.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Button>
                </items>
                <padding>

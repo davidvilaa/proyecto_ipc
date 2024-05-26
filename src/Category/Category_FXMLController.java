@@ -37,6 +37,7 @@ public class Category_FXMLController implements Initializable {
         ButtonDeleteCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
         ButtonEditCategory.disableProperty().bind(Bindings.equal(-1, CategoryList.getSelectionModel().selectedIndexProperty()));
         
+        
         try{
             loadCategories();
         }
