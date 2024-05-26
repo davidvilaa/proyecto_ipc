@@ -1,0 +1,52 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* Estilo para el botón de login */
+.button-login {
+    -fx-background-color: #0F4C75; 
+    -fx-text-fill: white; /* Texto blanco */
+    -fx-font-size: 16px; /* Tamaño de la fuente */
+    -fx-padding: 10px; /* Espaciado interno */
+    -fx-border-radius: 5px; /* Bordes redondeados */
+    -fx-background-radius: 5px; /* Fondo redondeado */
+}
+.button-login:hover {
+    -fx-background-color: #3282B8;
+}
+.button-login:pressed{
+    -fx-background-color: #0F4C75;
+}
+/* Estilo para el campo de texto */
+.text-field {
+    -fx-background-color: #f0f0f0; /* Fondo gris claro */
+    -fx-padding: 5px; /* Espaciado interno */
+    -fx-border-radius: 5px; /* Bordes redondeados */
+    -fx-background-radius: 5px; /* Fondo redondeado */
+    -fx-border-color: #ccc; /* Color del borde */
+    -fx-border-width: 1px; /* Ancho del borde */
+}
+
+/* Estilo para el campo de contraseña */
+.password-field {
+    -fx-background-color: #f0f0f0; /* Fondo gris claro */
+    -fx-padding: 5px; /* Espaciado interno */
+    -fx-border-radius: 5px; /* Bordes redondeados */
+    -fx-background-radius: 5px; /* Fondo redondeado */
+    -fx-border-color: #ccc; /* Color del borde */
+    -fx-border-width: 1px; /* Ancho del borde */
+}
+
+.label-error {
+    -fx-text-fill: red;
+    -fx-font-size: 14px;
+}
+
+.label-text{
+    -fx-text-fill: #0F4C75; /* Color de texto base */
+    -fx-font-family: 'Calibri';
+    -fx-font-style: italic;
+    -fx-font-weigth: bold;
+    -fx-padding: 10px; /* Espaciado interno */
+}
+    

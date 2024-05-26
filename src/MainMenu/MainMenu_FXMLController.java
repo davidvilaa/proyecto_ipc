@@ -38,6 +38,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseDragEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -95,6 +96,8 @@ public class MainMenu_FXMLController implements Initializable {
     Category category = null;
     
     ObservableList<MenuItem> categories = FXCollections.observableArrayList();
+    @FXML
+    private HBox hBox;
 
     
     @Override
@@ -131,6 +134,10 @@ public class MainMenu_FXMLController implements Initializable {
         catch(IOException e){
             e.printStackTrace();
         }
+        
+        String css = this.getClass().getResource("/estilos/botonesLogin.css")
+        .toExternalForm();
+        hBox.getStylesheets().add(css);
     }
 
     public void updateCharges() throws IOException{
@@ -394,22 +401,21 @@ public class MainMenu_FXMLController implements Initializable {
  }
     
     private void addCategories() throws IOException {
-        try{
-        List<Category> categoryList = Acount.getInstance().getUserCategories();
-        if(categoryList == null || categoryList.isEmpty()) return;
-        for(Category category : categoryList){
-            MenuItem item = new MenuItem();
-            String categoryName = category.getName();
-            item.setText(categoryName);
-            item.setOnAction(event -> {
-                updateCategory(category);
-            });
-            categories.add(item);
+        try {
+            List<Category> categoryList = Acount.getInstance().getUserCategories();
+            if (categoryList == null || categoryList.isEmpty()) return;
+            for (Category category : categoryList) {
+                MenuItem item = new MenuItem();
+                String categoryName = category.getName();
+                item.setText(categoryName);
+                item.setOnAction(event -> {
+                    updateCategory(category);
+                });
+                categories.add(item);
+            }
+        } catch (AcountDAOException e) {
+            e.printStackTrace();
         }
-    } 
-    catch(AcountDAOException e){
-        e.printStackTrace();
-    }
     }
     
     private void updateCategory(Category category) {

@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Login_FXMLController">
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="gridpane" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Login_FXMLController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,26 +25,26 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="268.0" text="Usuario:" GridPane.columnIndex="1">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="268.0" styleClass="label-text" text="Usuario:" GridPane.columnIndex="1">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="270.0" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="270.0" styleClass="label-text" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="nickname" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" GridPane.columnIndex="2" />
-      <Button fx:id="login_button" mnemonicParsing="false" onAction="#loginHandle" prefHeight="57.0" prefWidth="250.0" text="Iniciar Sesión" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="1056.0" stroke="TRANSPARENT" strokeType="INSIDE" width="251.0" />
-      <PasswordField fx:id="password" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Hyperlink alignment="CENTER" onAction="#goToRegister" prefHeight="23.0" prefWidth="278.0" text="¿No tienes Cuenta? Registrate Aquí." GridPane.columnIndex="2" GridPane.rowIndex="2">
+      <TextField fx:id="nickname" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" styleClass="text-field" GridPane.columnIndex="2" />
+      <Button fx:id="login_button" mnemonicParsing="false" onAction="#loginHandle" prefHeight="57.0" prefWidth="250.0" styleClass="button-login" text="Iniciar Sesión" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Rectangle fx:id="Rectangle" arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="753.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="rectangle" width="251.0" GridPane.rowIndex="1" />
+      <PasswordField fx:id="password" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" styleClass="password-field" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Hyperlink alignment="CENTER" onAction="#goToRegister" prefHeight="23.0" prefWidth="278.0" text="¿No tienes Cuenta? Registrate Aquí." textFill="#0f4c75" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <font>
-            <Font size="15.0" />
+            <Font name="Calibri" size="15.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="login_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" textFill="RED" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Label fx:id="login_error" alignment="CENTER" prefHeight="17.0" prefWidth="305.0" styleClass="label-error" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets top="73.0" />
          </GridPane.margin>

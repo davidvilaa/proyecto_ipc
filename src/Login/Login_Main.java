@@ -17,6 +17,8 @@ public class Login_Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Login_FXML.fxml"));
         Parent root = loader.load();
         scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        scene.getStylesheets().add(css);
         mainStage.setScene(scene);
         mainStage.setTitle("Login Usuario");
         mainStage.getIcons().add(new Image("./assets/ww_black.png"));
