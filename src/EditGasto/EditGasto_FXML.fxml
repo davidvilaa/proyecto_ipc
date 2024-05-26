@@ -70,7 +70,10 @@
       <MenuButton fx:id="categoryMenu" mnemonicParsing="false" prefHeight="25.0" prefWidth="307.0" GridPane.columnIndex="1">
          <graphic>
             <Label fx:id="labelCategory" />
-         </graphic></MenuButton>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></MenuButton>
       <Button fx:id="editar" mnemonicParsing="false" onAction="#editarHandle" prefHeight="25.0" prefWidth="131.0" styleClass="buttons" text="Editar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
          <cursor>
             <Cursor fx:constant="HAND" />

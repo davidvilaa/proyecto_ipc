@@ -12,9 +12,6 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -38,25 +35,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gridpane" width="602.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1837037056684494" green="0.42598310112953186" blue="0.6526315808296204" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.09263157844543457" green="3.856564169905981E-17" blue="0.34736841917037964" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Label styleClass="label-text-white" text="Configurar Datos de Usuario" textFill="WHITE" GridPane.columnSpan="3">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="rectangle" width="602.0" />
+            <Label styleClass="label-text-white" text="Configurar Datos de Usuario" textFill="WHITE" GridPane.columnSpan="3" GridPane.halignment="CENTER">
                <font>
                   <Font name="SansSerif Bold Italic" size="43.0" />
                </font>

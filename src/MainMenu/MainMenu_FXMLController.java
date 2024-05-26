@@ -269,11 +269,6 @@ public class MainMenu_FXMLController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-<<<<<<< HEAD
-=======
-        stage.setTitle("Editar Gasto");
-        stage.setScene(new Scene(root));
->>>>>>> 1d0c11d7297c67fec7c1a457b3f9477712e356db
         
         stage.setOnHidden(e -> {
             try {
