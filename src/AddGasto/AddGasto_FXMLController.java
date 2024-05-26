@@ -1,6 +1,5 @@
 package AddGasto;
 
-import MainMenu.MainMenu_FXMLController;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
