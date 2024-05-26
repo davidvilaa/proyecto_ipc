@@ -118,12 +118,11 @@ public class Register_FXMLController implements Initializable {
     }
     
     public void register()throws AcountDAOException, IOException{
-        register_error.setText("");
-        name_error.setText("");
-        surname_error.setText("");
-        nickname_error.setText("");
-        password_error.setText("");
-        mail_error.setText("");
+        name_error.setVisible(false);
+        surname_error.setVisible(false);
+        nickname_error.setVisible(false);
+        password_error.setVisible(false);
+        mail_error.setVisible(false);
         
         try{
             if(nameIsCorrect() && surnameIsCorrect() && nicknameIsCorrect() && passwordIsCorrect() && mailIsCorrect()){
@@ -135,19 +134,19 @@ public class Register_FXMLController implements Initializable {
             }
             else{
                 if(!nameIsCorrect()){
-                    name_error.setText("El Nombre solo puede contener Letras");
+                    name_error.setVisible(true);
                 }
                 if(!surnameIsCorrect()){
-                    surname_error.setText("El Apellido solo puede contener Letras");
+                    surname_error.setVisible(true);
                 }
                 if(!nicknameIsCorrect()){
-                    nickname_error.setText("El usuario solo puede conter Letras minúsculas");
+                    nickname_error.setVisible(true);
                 }
                 if(!passwordIsCorrect()){
-                    password_error.setText("La contraseña solo puede contener un mínimo de 6 Letras o Números");
+                    password_error.setVisible(true);
                 }
                 if(!mailIsCorrect()){
-                    mail_error.setText("El mail debe contener un dominio permitido o texto antes de @");
+                    mail_error.setVisible(true);
                 }
             }
         }
@@ -164,6 +163,8 @@ public class Register_FXMLController implements Initializable {
     public void goToLogin() throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/Login/Login_FXML.fxml"));
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        scene.getStylesheets().add(css);
         Stage window = (Stage) nickname.getScene().getWindow();
         window.setScene(scene);
         window.setTitle("Login");
@@ -174,5 +175,11 @@ public class Register_FXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         image.setVisible(false);
         image.setImage(new Image("./assets/default_user.png"));
+        
+        name_error.setVisible(false);
+        surname_error.setVisible(false);
+        nickname_error.setVisible(false);
+        password_error.setVisible(false);
+        mail_error.setVisible(false);
     }
 }

@@ -44,6 +44,8 @@ public class Login_FXMLController implements Initializable{
     private void goToRegister(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/Register/Register_FXML.fxml"));
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        scene.getStylesheets().add(css);
         Stage window = (Stage) nickname.getScene().getWindow();
         window.setScene(scene);
         window.setTitle("Registro");

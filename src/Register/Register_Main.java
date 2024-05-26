@@ -19,7 +19,8 @@ public class Register_Main extends Application {
         Parent root = loader.load();
         
         scene = new Scene(root);
-        
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        scene.getStylesheets().add(css);
         mainStage.setScene(scene);
         mainStage.setTitle("Registrar Usuario");
         mainStage.getIcons().add(new Image("./assets/ww_black.png"));
