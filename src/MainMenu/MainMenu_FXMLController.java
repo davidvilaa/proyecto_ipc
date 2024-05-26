@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import Login.Login_Main;
 import ViewGasto.ViewGasto_FXMLController;
 import EditGasto.EditGasto_FXMLController;
+import static Estadisticas.Estadisticas_Main.scene;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -176,8 +177,10 @@ public class MainMenu_FXMLController implements Initializable {
         
         Stage stage = new Stage();
         stage.setTitle("Añadir Gasto");
-        stage.setScene(new Scene(root));
-        
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
         stage.setOnHidden(e -> {
             try {
                 updateCharges();
@@ -199,7 +202,10 @@ public class MainMenu_FXMLController implements Initializable {
         
         Stage stage = new Stage();
         stage.setTitle("Categorías");
-        stage.setScene(new Scene(root));
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
         
         stage.setOnHidden(e -> {
             try {
@@ -232,7 +238,10 @@ public class MainMenu_FXMLController implements Initializable {
         
         Stage stage = new Stage();
         stage.setTitle("Visualizar Gasto");
-        stage.setScene(new Scene(root));
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(goToCategory.getScene().getWindow());
@@ -255,8 +264,16 @@ public class MainMenu_FXMLController implements Initializable {
               selected.getDescription(), selected.getImageScan(), selected);
         
         Stage stage = new Stage();
+<<<<<<< HEAD
+        stage.setTitle("Visualizar Gasto");
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+=======
         stage.setTitle("Editar Gasto");
         stage.setScene(new Scene(root));
+>>>>>>> d5045f7a625fb678f4a03d7ca941aea457eb2a15
         
         stage.setOnHidden(e -> {
             try {
@@ -299,7 +316,10 @@ public class MainMenu_FXMLController implements Initializable {
         
         Stage stage = new Stage();
         stage.setTitle("Configurar datos");
-        stage.setScene(new Scene(root));
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
         
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(NOBORRAR.getScene().getWindow());
@@ -325,6 +345,18 @@ public class MainMenu_FXMLController implements Initializable {
 
         Optional<ButtonType> result = logOut.showAndWait();
         if (result.isPresent() && result.get() == buttonAceptar) {
+<<<<<<< HEAD
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
+            Parent root = loader.load();
+            Login_Main.scene = new Scene(root);
+            String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+            Login_Main.scene.getStylesheets().add(css);
+            Login_Main.mainStage.setScene(Login_Main.scene);
+            Login_Main.mainStage.setTitle("Login Usuario");
+            Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
+            Login_Main.mainStage.setResizable(false);
+            Login_Main.mainStage.showAndWait();
+=======
             Parent root2 = FXMLLoader.load(getClass().getResource("/Login/Login_FXML.fxml"));
             Scene scene2 = new Scene(root2);
             Stage window2 =(Stage) NOBORRAR.getScene().getWindow();
@@ -332,6 +364,7 @@ public class MainMenu_FXMLController implements Initializable {
             window2.setTitle("Login");
             window2.show();
             window2.setResizable(true);
+>>>>>>> d5045f7a625fb678f4a03d7ca941aea457eb2a15
         } else {
         }
     }
@@ -440,6 +473,8 @@ public class MainMenu_FXMLController implements Initializable {
         
         Parent root = FXMLLoader.load(getClass().getResource("/Estadisticas/Estadisticas_FXML.fxml"));
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        scene.getStylesheets().add(css);
         Stage window = (Stage) NOBORRAR.getScene().getWindow();
         window.setScene(scene);
         //window.setHeight(currentHeight);

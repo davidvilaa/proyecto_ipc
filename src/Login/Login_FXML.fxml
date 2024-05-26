@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="gridpane" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Login_FXMLController">
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Login_FXMLController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,7 +38,7 @@
          </font>
       </Label>
       <TextField fx:id="nickname" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" styleClass="text-field" GridPane.columnIndex="2" />
-      <Button fx:id="login_button" mnemonicParsing="false" onAction="#loginHandle" prefHeight="57.0" prefWidth="250.0" styleClass="button-login" text="Iniciar Sesión" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button fx:id="login_button" mnemonicParsing="false" onAction="#loginHandle" prefHeight="57.0" prefWidth="250.0" styleClass="buttons" text="Iniciar Sesión" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Rectangle fx:id="Rectangle" arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="666.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="rectangle" width="251.0" GridPane.rowIndex="1" />
       <PasswordField fx:id="password" onKeyPressed="#keyEnterLogin" onKeyTyped="#keyEnterLogin" styleClass="password-field" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Hyperlink alignment="CENTER" onAction="#goToRegister" prefHeight="142.0" prefWidth="206.0" text="¿No tienes Cuenta? Registrate Aquí." textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">

@@ -3,7 +3,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
 */
 /* Estilo para el botón de login */
-.button-login {
+.buttons {
     -fx-background-color: #0F4C75; 
     -fx-text-fill: white; /* Texto blanco */
     -fx-font-size: 16px; /* Tamaño de la fuente */
@@ -11,10 +11,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-radius: 5px; /* Bordes redondeados */
     -fx-background-radius: 5px; /* Fondo redondeado */
 }
-.button-login:hover {
+.buttons:hover {
     -fx-background-color: #3282B8;
 }
-.button-login:pressed{
+.buttons:pressed{
+    -fx-background-color: #0F4C75;
+}
+.buttons3{
+    -fx-background-color: #0F4C75; 
+    -fx-text-fill: white; /* Texto blanco */
+    -fx-font-size: 13px; /* Tamaño de la fuente */
+    -fx-padding: 10px; /* Espaciado interno */
+    -fx-border-radius: 5px; /* Bordes redondeados */
+    -fx-background-radius: 5px; /* Fondo redondeado */
+}
+.buttons3:hover {
+    -fx-background-color: #3282B8;
+}
+.buttons3:pressed{
     -fx-background-color: #0F4C75;
 }
 /* Estilo para el campo de texto */
@@ -49,4 +63,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-weigth: bold;
     -fx-padding: 10px; /* Espaciado interno */
 }
-    
+.gridpane{
+    -fx-background-color: #0F4C75;
+}
+
+.label-text-white{
+    -fx-text-fill: white; /* Color de texto base */
+    -fx-font-family: 'Calibri';
+    -fx-font-style: italic;
+}
+.toolbar {
+    -fx-background-color: #0F4C75; /* Color de fondo de la Toolbar */
+    -fx-background-radius: 10px 10px 0px 0px;
+}
+.toolbar:hover {
+    -fx-scale-x: 1.1; /* Escalar el botón en el eje X al pasar el ratón sobre él */
+    -fx-scale-y: 1.1; /* Escalar el botón en el eje Y al pasar el ratón sobre él */
+}
+.buttons2 {
+    -fx-background-color: #0F4C75; 
+    -fx-border-radius: 5px; /* Bordes redondeados */
+    -fx-background-radius: 5px; /* Fondo redondeado */
+}
+.buttons2:hover {
+    -fx-scale-x: 1.1; /* Escalar el botón en el eje X al pasar el ratón sobre él */
+    -fx-scale-y: 1.1; /* Escalar el botón en el eje Y al pasar el ratón sobre él */
+    -fx-background-color: #3282B8;
+    -fx-background-color: #0F4C75;
+}

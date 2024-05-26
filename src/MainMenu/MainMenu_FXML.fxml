@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.MainMenu_FXMLController">
    <center>
       <TableView fx:id="chargeTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
@@ -50,7 +50,7 @@
             <Insets left="5.0" />
          </BorderPane.margin>
          <children>
-            <Button fx:id="goToAddGasto" mnemonicParsing="false" onAction="#goToAddGastoHandle" prefHeight="20.0" prefWidth="20.0">
+            <Button fx:id="goToAddGasto" mnemonicParsing="false" onAction="#goToAddGastoHandle" prefHeight="20.0" prefWidth="20.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -62,7 +62,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="goToCategory" mnemonicParsing="false" onAction="#goToCategoryHandle" prefHeight="20.0" prefWidth="20.0">
+            <Button fx:id="goToCategory" mnemonicParsing="false" onAction="#goToCategoryHandle" prefHeight="20.0" prefWidth="20.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -74,7 +74,7 @@
                   <Insets top="7.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="goToVisualizar" mnemonicParsing="false" onAction="#goToVisualizarHandle" prefHeight="20.0" prefWidth="36.0">
+            <Button fx:id="goToVisualizar" mnemonicParsing="false" onAction="#goToVisualizarHandle" prefHeight="20.0" prefWidth="36.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -85,7 +85,7 @@
                   <Insets top="40.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="goToModificar" mnemonicParsing="false" onAction="#goToModificarHandle" prefHeight="20.0" prefWidth="20.0">
+            <Button fx:id="goToModificar" mnemonicParsing="false" onAction="#goToModificarHandle" prefHeight="20.0" prefWidth="20.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -97,7 +97,7 @@
                   <Insets top="7.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="goToBorrar" mnemonicParsing="false" onAction="#goToBorrarHandle" prefHeight="20.0" prefWidth="20.0">
+            <Button fx:id="goToBorrar" mnemonicParsing="false" onAction="#goToBorrarHandle" prefHeight="20.0" prefWidth="20.0" styleClass="buttons">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -116,60 +116,53 @@
       <VBox prefHeight="335.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
    </left>
    <bottom>
-      <HBox fx:id="hBox" alignment="BOTTOM_CENTER" prefHeight="58.0" prefWidth="600.0" BorderPane.alignment="BOTTOM_CENTER">
+      <HBox fx:id="hBox" alignment="BOTTOM_CENTER" prefHeight="68.0" prefWidth="514.0" BorderPane.alignment="BOTTOM_CENTER">
          <children>
-            <ToolBar prefHeight="68.0" prefWidth="226.0">
+            <ToolBar prefHeight="68.0" prefWidth="251.0" styleClass="toolbar">
               <items>
-                  <HBox alignment="BOTTOM_CENTER" fillHeight="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                     <children>
-                      <Button mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/casa.png" />
-                                 </image></ImageView>
-                           </graphic>
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="PrintButton" mnemonicParsing="false" onAction="#PrintingButton">
-                           <graphic>
-                              <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/imprimir.png" />
-                                 </image></ImageView>
-                           </graphic>
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="statsButton" mnemonicParsing="false" onAction="#Estadisticas">
-                           <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/grafico.png" />
-                                 </image></ImageView>
-                           </graphic>
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
+                <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="70.0" styleClass="buttons2">
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/casa.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="PrintButton" mnemonicParsing="false" onAction="#PrintingButton" styleClass="buttons2">
+                     <graphic>
+                        <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/imprimir.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="statsButton" mnemonicParsing="false" onAction="#Estadisticas" styleClass="buttons2">
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/grafico.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
               </items>
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" />
+               </padding>
             </ToolBar>
          </children>
          <BorderPane.margin>
-            <Insets top="5.0" />
+            <Insets top="10.0" />
          </BorderPane.margin>
       </HBox>
    </bottom>
    <top>
-      <GridPane centerShape="false" prefHeight="66.0" prefWidth="672.0" style="-fx-background-color: blue;">
+      <GridPane centerShape="false" prefHeight="66.0" prefWidth="672.0" styleClass="gridpane">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" maxWidth="562.3999633789062" minWidth="10.0" prefWidth="444.7999603271484" />
             <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
@@ -180,12 +173,12 @@
          <children>
             <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label alignment="TOP_RIGHT" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="132.0" text="Bienvenid@," textAlignment="RIGHT" wrapText="true">
+                  <Label alignment="TOP_RIGHT" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="132.0" styleClass="label-text-white" text="Bienvenid@," textAlignment="RIGHT" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <HBox.margin>
-                        <Insets />
+                        <Insets top="2.0" />
                      </HBox.margin>
                   </Label>
                   <VBox onMouseClicked="#pulsarUsuario" onMouseEntered="#usuariopasar" onMouseExited="#usuarionopasar">

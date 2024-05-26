@@ -326,6 +326,8 @@ public class Estadisticas_FXMLController implements Initializable {
         
         Parent root = FXMLLoader.load(getClass().getResource("/MainMenu/MainMenu_FXML.fxml"));
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        scene.getStylesheets().add(css);
         Stage window = (Stage) DESELECCIONAR.getScene().getWindow();
         window.setScene(scene);
         //window.setHeight(currentHeight);

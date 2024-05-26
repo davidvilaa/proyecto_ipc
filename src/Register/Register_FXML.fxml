@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,11 +13,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Register.Register_FXMLController">
+<GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Register.Register_FXMLController">
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="180.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="326.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.4000244140625" minWidth="10.0" prefWidth="244.800048828125" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="205.59996337890624" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="308.0000366210937" />
   </columnConstraints>
   <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -28,46 +29,58 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <PasswordField fx:id="password" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="799.0" stroke="TRANSPARENT" strokeType="INSIDE" width="197.0" GridPane.rowIndex="2" />
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Nombre:" GridPane.columnIndex="1" GridPane.valignment="TOP">
+      <PasswordField fx:id="password" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="3.0" />
+         </GridPane.margin></PasswordField>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f4c75" height="750.0" stroke="TRANSPARENT" strokeType="INSIDE" width="251.0" GridPane.rowIndex="2" />
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" styleClass="label-text" text="Nombre:" GridPane.columnIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" text="Usuario:" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="311.0" styleClass="label-text" text="Usuario:" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="289.0" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="289.0" styleClass="label-text" text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="359.0" text="Correo Electrónico:" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="248.0" styleClass="label-text" text="Correo Electrónico:" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Imágen de Perfil:" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="381.0" styleClass="label-text" text="Imágen de Perfil:" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <Label fx:id="register_error" alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="250.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <Button fx:id="register_button" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" text="Registrarse" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-      <TextField fx:id="name" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.valignment="TOP" />
-      <TextField fx:id="nickname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <TextField fx:id="mail" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <Button fx:id="register_button" mnemonicParsing="false" onAction="#registerHandle" prefHeight="39.0" prefWidth="250.0" styleClass="buttons" text="Registrarse" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <TextField fx:id="name" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="3.0" />
+         </GridPane.margin></TextField>
+      <TextField fx:id="nickname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="3.0" />
+         </GridPane.margin></TextField>
+      <TextField fx:id="mail" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="4.0" />
+         </GridPane.margin></TextField>
       <ImageView fx:id="image" fitHeight="90.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Button fx:id="selectArchive" mnemonicParsing="false" onAction="#selectArchiveHandle" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" prefHeight="0.0" prefWidth="250.0" text="Seleccionar Archivo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="252.0" text="(opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
+      <Button fx:id="selectArchive" mnemonicParsing="false" onAction="#selectArchiveHandle" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" prefHeight="0.0" prefWidth="250.0" styleClass="buttons" text="Seleccionar Archivo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="252.0" styleClass="label-text" text="(opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="25.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="atras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#atrasHandle" prefHeight="39.0" prefWidth="157.0" text="Atrás" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
+      <Button fx:id="atras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#atrasHandle" prefHeight="39.0" prefWidth="157.0" styleClass="buttons" text="Atrás" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
@@ -83,12 +96,15 @@
             <Font size="11.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" text="Apellido:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="279.0" styleClass="label-text" text="Apellido:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="surname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <TextField fx:id="surname" onKeyPressed="#keyEnterRegister" onKeyTyped="#keyEnterRegister" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="3.0" />
+         </GridPane.margin></TextField>
       <Label fx:id="surname_error" alignment="TOP_CENTER" prefHeight="49.0" prefWidth="326.0" styleClass="label-error" text="El apellido solo puede contener letras." GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
@@ -130,6 +146,11 @@
             <Font size="11.0" />
          </font>
       </Label>
+      <ImageView fitHeight="176.0" fitWidth="187.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowSpan="7" GridPane.valignment="CENTER">
+         <image>
+            <Image url="@../assets/save.png" />
+         </image>
+      </ImageView>
    </children>
    <padding>
       <Insets right="20.0" top="20.0" />
