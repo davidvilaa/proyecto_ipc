@@ -33,15 +33,12 @@ public class Carga_Main extends Application {
         PauseTransition pause = new PauseTransition(Duration.seconds(4));
         pause.setOnFinished(event -> {
             try {
-                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
-                Parent root2 = loader2.load();
-                scene = new Scene(root2);
+                Parent root2 = FXMLLoader.load(getClass().getResource("/Login/Login_FXML.fxml"));
+                Scene scene = new Scene(root2);
                 String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
                 scene.getStylesheets().add(css);
                 mainStage.setScene(scene);
-                mainStage.setTitle("Login Usuario");
-                mainStage.getIcons().add(new Image("./assets/ww_black.png"));
-                mainStage.setResizable(false);
+                mainStage.setTitle("Login");
                 mainStage.show();
             } catch (IOException ex) {
                 Logger.getLogger(Carga_FXMLController.class.getName()).log(Level.SEVERE, null, ex);
