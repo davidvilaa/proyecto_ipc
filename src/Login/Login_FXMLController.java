@@ -71,6 +71,8 @@ public class Login_FXMLController implements Initializable{
                 if(cuentaGastos.logInUserByCredentials(nickname.getText(), password.getText())){
                     Parent root2 = FXMLLoader.load(getClass().getResource("/MainMenu/MainMenu_FXML.fxml"));
                     Scene scene2 = new Scene(root2);
+                    String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+                    scene2.getStylesheets().add(css);
                     Stage window2 =(Stage) nickname.getScene().getWindow();
                     window2.setScene(scene2);
                     window2.setTitle("Menú Principal");
