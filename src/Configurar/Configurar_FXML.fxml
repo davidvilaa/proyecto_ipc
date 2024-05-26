@@ -38,7 +38,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="602.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gridpane" width="602.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -56,36 +56,36 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Label text="Configurar Datos de Usuario" textFill="WHITE" GridPane.columnSpan="3">
+            <Label styleClass="label-text-white" text="Configurar Datos de Usuario" textFill="WHITE" GridPane.columnSpan="3">
                <font>
                   <Font name="SansSerif Bold Italic" size="43.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="75.0" text="Nickname:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="122.0" styleClass="label-text" text="Nickname:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextField fx:id="configurarNickname" disable="true" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER" />
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="63.0" text="Nombre:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="122.0" styleClass="label-text" text="Nombre:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextField fx:id="configurarNombre" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER" />
             <TextField fx:id="configurarApellido" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="63.0" text="Apellido:" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="122.0" styleClass="label-text" text="Apellido:" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="56.0" text="Correo:" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="122.0" styleClass="label-text" text="Correo:" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextField fx:id="configurarCorreo" prefHeight="26.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="138.0" text="Antigua Contraseña:" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="138.0" styleClass="label-text" text="Antigua Contraseña:" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
                <font>
                   <Font size="14.0" />
                </font>
@@ -98,7 +98,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Label>
-            <Button fx:id="guardarNuevaConfiguracion" mnemonicParsing="false" onMouseClicked="#guardar" prefHeight="30.0" prefWidth="63.0" text="Guardar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+            <Button fx:id="guardarNuevaConfiguracion" mnemonicParsing="false" onMouseClicked="#guardar" prefHeight="30.0" prefWidth="99.0" styleClass="buttons" text="Guardar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -106,7 +106,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="138.0" text="Nueva Contraseña:" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="TOP">
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="28.0" prefWidth="138.0" styleClass="label-text" text="Nueva Contraseña:" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="TOP">
                <font>
                   <Font size="14.0" />
                </font>

@@ -264,16 +264,11 @@ public class MainMenu_FXMLController implements Initializable {
               selected.getDescription(), selected.getImageScan(), selected);
         
         Stage stage = new Stage();
-<<<<<<< HEAD
         stage.setTitle("Visualizar Gasto");
         String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-=======
-        stage.setTitle("Editar Gasto");
-        stage.setScene(new Scene(root));
->>>>>>> d5045f7a625fb678f4a03d7ca941aea457eb2a15
         
         stage.setOnHidden(e -> {
             try {
@@ -345,7 +340,6 @@ public class MainMenu_FXMLController implements Initializable {
 
         Optional<ButtonType> result = logOut.showAndWait();
         if (result.isPresent() && result.get() == buttonAceptar) {
-<<<<<<< HEAD
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
             Parent root = loader.load();
             Login_Main.scene = new Scene(root);
@@ -356,7 +350,6 @@ public class MainMenu_FXMLController implements Initializable {
             Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
             Login_Main.mainStage.setResizable(false);
             Login_Main.mainStage.showAndWait();
-=======
             Parent root2 = FXMLLoader.load(getClass().getResource("/Login/Login_FXML.fxml"));
             Scene scene2 = new Scene(root2);
             Stage window2 =(Stage) NOBORRAR.getScene().getWindow();
@@ -364,7 +357,6 @@ public class MainMenu_FXMLController implements Initializable {
             window2.setTitle("Login");
             window2.show();
             window2.setResizable(true);
->>>>>>> d5045f7a625fb678f4a03d7ca941aea457eb2a15
         } else {
         }
     }
@@ -382,7 +374,7 @@ public class MainMenu_FXMLController implements Initializable {
         float anchuraTable = page.getMediaBox().getWidth() - (2 * margin);
         float y = yStart;
         float marginBajo = 70;
-        float marginCelda = 10;
+        float marginCelda = 2;
         float alturaRow = 20;
         float tableBajoY = marginBajo;
         boolean draw = true;

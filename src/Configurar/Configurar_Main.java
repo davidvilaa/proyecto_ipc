@@ -26,6 +26,8 @@ public class Configurar_Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Configurar_FXML.fxml"));
         Parent root = loader.load();
         scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+        scene.getStylesheets().add(css);
         mainStage.setScene(scene);
         mainStage.setTitle("Configuración");
         mainStage.getIcons().add(new Image("./assets/ww_black.png"));
