@@ -61,6 +61,7 @@ public class MainMenu_FXMLController implements Initializable {
     private Button goToModificar;
     @FXML
     private Button goToBorrar;
+    private Button stats;
     @FXML
     public TableView<Charge> chargeTable;
     @FXML
@@ -95,6 +96,8 @@ public class MainMenu_FXMLController implements Initializable {
     Category category = null;
     
     ObservableList<MenuItem> categories = FXCollections.observableArrayList();
+    @FXML
+    private Button statsButton;
 
     
     @Override
@@ -423,5 +426,25 @@ public class MainMenu_FXMLController implements Initializable {
         }
         return charge.getCategory().equals(category);
     });
+
+      
+
+    }
+    
+
+    @FXML
+    private void Estadisticas(ActionEvent event) throws IOException {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("/Estadisticas/Estadisticas_FXML.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setTitle("Estadisticas");
+        stage.setScene(new Scene(root));
+
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(statsButton.getScene().getWindow());
+        stage.getIcons().add(new Image("./assets/ww_black.png"));
+        stage.setResizable(false);
+        stage.showAndWait();  
     }
 }

@@ -39,6 +39,9 @@
          <BorderPane.margin>
             <Insets top="10.0" />
          </BorderPane.margin>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </center>
    <right>
@@ -141,9 +144,12 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="statsButton" mnemonicParsing="false" onAction="#Estadisticas">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/grafico.png" />
+                                 </image></ImageView>
                            </graphic>
                            <HBox.margin>
                               <Insets right="5.0" />
@@ -179,7 +185,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label alignment="TOP_RIGHT" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="132.0" text="Bienvenido," textAlignment="RIGHT" wrapText="true">
+                  <Label alignment="TOP_RIGHT" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="132.0" text="Bienvenid@," textAlignment="RIGHT" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
