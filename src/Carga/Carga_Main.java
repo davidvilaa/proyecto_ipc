@@ -36,6 +36,8 @@ public class Carga_Main extends Application {
                 FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
                 Parent root2 = loader2.load();
                 scene = new Scene(root2);
+                String css = this.getClass().getResource("/estilos/botonesLogin.css").toExternalForm();
+                scene.getStylesheets().add(css);
                 mainStage.setScene(scene);
                 mainStage.setTitle("Login Usuario");
                 mainStage.getIcons().add(new Image("./assets/ww_black.png"));
