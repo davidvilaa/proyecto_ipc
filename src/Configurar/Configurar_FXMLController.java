@@ -35,11 +35,6 @@ import model.AcountDAOException;
 
 
 
-/**
- * FXML Controller class
- *
- * @author Borja Rodríguez Vict
- */
 public class Configurar_FXMLController implements Initializable {
     @FXML
     public Label oldpassword_error;
@@ -122,7 +117,8 @@ public class Configurar_FXMLController implements Initializable {
         FileChooser fc = new FileChooser();
         fc.setTitle("Selecciona una Imágen");
         
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(".png",".jpg","*.jpeg"));
+        fc.getExtensionFilters().addAll(
+        new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
         
         File file = fc.showOpenDialog(new Stage());
         
