@@ -17,18 +17,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Borja Rodríguez Vict
- */
 public class Carga_FXMLController implements Initializable {
 
     @FXML
     private Button irALogin;
     private static Scene scene;
     private static Stage mainStage;
-    
 
     @Override
     public void initialize  (URL url, ResourceBundle rb) {

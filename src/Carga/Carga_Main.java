@@ -40,7 +40,7 @@ public class Carga_Main extends Application {
                 mainStage.setTitle("Login Usuario");
                 mainStage.getIcons().add(new Image("./assets/ww_black.png"));
                 mainStage.setResizable(false);
-                mainStage.showAndWait();
+                mainStage.show();
             } catch (IOException ex) {
                 Logger.getLogger(Carga_FXMLController.class.getName()).log(Level.SEVERE, null, ex);
             }
