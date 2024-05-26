@@ -86,7 +86,7 @@ public class Register_FXMLController implements Initializable {
     }
     
     private boolean passwordIsCorrect(){
-        return (password.getText().length() >= 6 && nickname.getText().matches("^[a-zA-Z0-9]+$"));
+        return (password.getText().length() >= 6 && password.getText().matches("^[a-zA-Z0-9]+$"));
     }
     
     private boolean mailIsCorrect(){

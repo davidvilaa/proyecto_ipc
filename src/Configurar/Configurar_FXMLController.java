@@ -88,7 +88,7 @@ public class Configurar_FXMLController implements Initializable {
     }
     
     private boolean passwordIsCorrect(){
-        return (nuevaContraseña.getText().length() >= 6);
+        return (nuevaContraseña.getText().length() >= 6 && nuevaContraseña.getText().matches("^[a-zA-Z0-9]+$"));
     }
     
     private boolean mailIsCorrect(){
@@ -119,7 +119,7 @@ public class Configurar_FXMLController implements Initializable {
 
     @FXML
     private void cambiarNuevaFoto(MouseEvent event) {
-     FileChooser fc = new FileChooser();
+        FileChooser fc = new FileChooser();
         fc.setTitle("Selecciona una Imágen");
         
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(".png",".jpg","*.jpeg"));
@@ -131,6 +131,7 @@ public class Configurar_FXMLController implements Initializable {
             fotoQueSeConfigura.setImage(file_image);
         }
     }
+    
     @FXML
     private void cambiarContraseña(ActionEvent event) {
        if(antiguaContraseña.isDisabled()) {
@@ -195,15 +196,20 @@ public class Configurar_FXMLController implements Initializable {
                     oldpassword_error.setVisible(false);
                 }
                 if(posibleGuardar == true){
-                cuentaConfigurar.getLoggedUser().setName((configurarNombre.getText()));
-                cuentaConfigurar.getLoggedUser().setSurname((configurarApellido.getText()));
-                cuentaConfigurar.getLoggedUser().setEmail((configurarCorreo.getText()));
-                cuentaConfigurar.getLoggedUser().setImage(fotoQueSeConfigura.getImage());
-                cuentaConfigurar.getLoggedUser().setPassword(nuevaContraseña.getText());
-                Stage stage = (Stage) guardarNuevaConfiguracion.getScene().getWindow();
-                stage.close();
-            }
-}   
+                    cuentaConfigurar.getLoggedUser().setName((configurarNombre.getText()));
+                    cuentaConfigurar.getLoggedUser().setSurname((configurarApellido.getText()));
+                    cuentaConfigurar.getLoggedUser().setEmail((configurarCorreo.getText()));
+                    cuentaConfigurar.getLoggedUser().setImage(fotoQueSeConfigura.getImage());
+                    if(nuevaContraseña.getText().isEmpty() && antiguaContraseña.getText().isEmpty()){
+                        cuentaConfigurar.getLoggedUser().setPassword(cuentaConfigurar.getLoggedUser().getPassword());
+                    }
+                    else{
+                        cuentaConfigurar.getLoggedUser().setPassword(nuevaContraseña.getText());
+                    }
+                    Stage stage = (Stage) guardarNuevaConfiguracion.getScene().getWindow();
+                    stage.close();
+                }   
+    }   
     
     public void goToMainMenu() throws IOException{
     

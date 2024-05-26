@@ -76,7 +76,6 @@ public class Login_FXMLController implements Initializable{
                     window2.setTitle("Menú Principal");
                     window2.show();
                     window2.setResizable(true);
-                    
                 }
                 else{
                     login_error.setText("Usuario o Contraseña incorrectos");

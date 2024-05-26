@@ -255,7 +255,7 @@ public class MainMenu_FXMLController implements Initializable {
               selected.getDescription(), selected.getImageScan(), selected);
         
         Stage stage = new Stage();
-        stage.setTitle("Visualizar Gasto");
+        stage.setTitle("Editar Gasto");
         stage.setScene(new Scene(root));
         
         stage.setOnHidden(e -> {
@@ -325,14 +325,13 @@ public class MainMenu_FXMLController implements Initializable {
 
         Optional<ButtonType> result = logOut.showAndWait();
         if (result.isPresent() && result.get() == buttonAceptar) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login/Login_FXML.fxml"));
-            Parent root = loader.load();
-            Login_Main.scene = new Scene(root);
-            Login_Main.mainStage.setScene(Login_Main.scene);
-            Login_Main.mainStage.setTitle("Login Usuario");
-            Login_Main.mainStage.getIcons().add(new Image("./assets/ww_black.png"));
-            Login_Main.mainStage.setResizable(false);
-            Login_Main.mainStage.showAndWait();
+            Parent root2 = FXMLLoader.load(getClass().getResource("/Login/Login_FXML.fxml"));
+            Scene scene2 = new Scene(root2);
+            Stage window2 =(Stage) NOBORRAR.getScene().getWindow();
+            window2.setScene(scene2);
+            window2.setTitle("Login");
+            window2.show();
+            window2.setResizable(true);
         } else {
         }
     }
