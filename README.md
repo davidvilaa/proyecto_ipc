@@ -1,3 +1,6 @@
+![wealthwise](https://i.ibb.co/v6R7KrPJ/imagen-2026-06-02-202201839.png)
+
+
 # 💳 WealthWise: Personal Expense Tracker
 
 <p align="center">
@@ -10,16 +13,35 @@
 
 ## What is this project?
 
-This is a desktop application developed as a 2nd-year university project for the "Interfaces Persona-Computador" (IPC) course. It is a personal finance management tool designed to help users track their daily purchases, organize expenses by categories, and visualize their spending habits.
+This is a desktop application developed as a 2nd-year university project for the Human-Computer Interaction (IPC) course. It is a personal finance management tool designed to help users track their daily purchases, organize expenses by categories, and visualize their spending habits.
 
 > **Note:** This is a legacy academic project focused on learning UI/UX principles, event-driven programming, and desktop application architecture using Java.
 
 ### Key Features
 
-*   **User Authentication:** Secure login and registration system.
-*   **Expense Management:** Add, edit, and view daily expenses.
-*   **Categorization:** Organize purchases into customizable categories for better tracking.
-*   **Statistics Dashboard:** Visual charts to analyze spending patterns over time.
+<details>
+  <summary><strong>🔐 User Authentication</strong></summary>
+  <br>
+  Secure login and registration system.
+</details>
+
+<details>
+  <summary><strong>💸 Expense Management</strong></summary>
+  <br>
+  Add, edit, and view daily expenses.
+</details>
+
+<details>
+  <summary><strong>🗂️ Categorization</strong></summary>
+  <br>
+  Organize purchases into customizable categories for better tracking.
+</details>
+
+<details>
+  <summary><strong>📊 Statistics Dashboard</strong></summary>
+  <br>
+  Visual charts to analyze spending patterns over time.
+</details>
 
 ---
 
