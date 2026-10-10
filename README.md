@@ -60,7 +60,7 @@ If you want to explore the source code or play the build locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/davidvilaa/proyecto_ipc.git](https://github.com/davidvilaa/proyecto_ipc.git)
+   git clone https://github.com/davidvilaa/proyecto_ipc.git
    ```
 2. **Open in your IDE:**
    Import the project into an IDE with JavaFX and Ant support (such as NetBeans, IntelliJ IDEA, or Eclipse).
